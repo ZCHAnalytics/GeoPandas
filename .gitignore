@@ -1,2 +1,11 @@
 env_var.py
 .env
+
+.conda
+.vscode
+*.pyc
+*.pyo
+*.pyd
+__pycache__/
+*.log
+*.tmp
