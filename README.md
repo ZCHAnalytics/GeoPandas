@@ -17,7 +17,7 @@ Credit: Realtime Trains
 - /api/trains: Get train  services btw stations. param: origin, destination
 - /api/delays: Get data about delayed trains. Param: o, d 
 
-![alt text](image-11.png)
+![alt text](images/image-11.png)
 
 
 [In Progress]

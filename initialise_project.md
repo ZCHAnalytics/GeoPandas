@@ -1,8 +1,5 @@
-
-
 ## Create Project Directory
 `mkdir geopandas && cd geopands`
-
 
 ## GitHUb 
 ```bash 
@@ -10,21 +7,21 @@ git init
 git remote add origin <link to GitHub repository>
 ```
 
-![alt text](image.png)
+![alt text](images/image.png)
 
 ## Isolate env
 
 - Install miniconda following instructions on https://docs.anaconda.com/miniconda/install/
 
-![alt text](image-1.png)
+![alt text](images/image-1.png)
 
 - Check hash (Recommended) with the hash on https://repo.anaconda.com/miniconda/ 
 
-![alt text](image-2.png)
+![alt text](images/image-2.png)
 
 - Initialise conda in git bash shell `C:/Users/zulfi/miniconda3/Scripts/conda init bash`
 
-![alt text](image-3.png)
+![alt text](images/image-3.png)
 
 - Create conda environment
 - Activate the new environment `conda activate trains_env`
@@ -50,7 +47,7 @@ def read_root():
 
 `uvicorn test_fastapi:app --reload`
 
-![alt text](image-5.png)
+![alt text](images/image-5.png)
 
 ## Test connection to Realtime Trains:
 - Write a code in `test_rtt.py` file:
@@ -91,4 +88,4 @@ if __name__=="__main__":
 
 - Run the programm `python test_rtt.py`:
 
-![alt text](image-6.png)
+![alt text](images/image-6.png)

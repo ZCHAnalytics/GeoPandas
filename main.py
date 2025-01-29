@@ -80,4 +80,3 @@ def get_delays_info(origin:str, destination: str):
         })
         
     return delayed_list
-
