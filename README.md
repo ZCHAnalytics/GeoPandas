@@ -6,6 +6,8 @@ Credit: Realtime Trains
 - use conda to create an isolated envrionment 
 - dependencies: fastapi, uvicorn, requests, python-dotenv, pandas, matplotlib, folium, geopandas
 - initialise github repository for version control
+- store environment variables to connect to Realtime Trains API securely 
+- test connection to API
 
 ## Build the REST API 
 ### Set up a FastAPI project
@@ -13,15 +15,12 @@ Credit: Realtime Trains
 
 ### Create basic endpoints:
 - /api/trains: Get train  services btw stations. param: origin, destination
-- /api/stations: Get stations metadata.
-- /api/delays: Get data about delayed trains. Param: o, d, time range
-- /api/congestion-hotspots
+- /api/delays: Get data about delayed trains. Param: o, d 
 
-## Load data
-- store environment variables to connect to Realtime Trains API securely 
-- test connection to API
-- create relevant endpoints (train movements, delays, operator performance, historical performance?) 
+![alt text](image-11.png)
 
+
+[In Progress]
 ## Analyse spatial data 
 - analyse delay clusters
 - identify congestion hotspots (routes or stations)

@@ -21,3 +21,8 @@ in the command prompt London Liverpool Stteet to Gatwick:
 format_response.py 
 
 ![alt text](image-10.png)
+
+
+# check delays 
+
+![alt text](image.png)
