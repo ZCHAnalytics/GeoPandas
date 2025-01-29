@@ -20,11 +20,16 @@ Credit: Realtime Trains
 ![alt text](images/image-11.png)
 
 
-[In Progress]
 ## Analyse spatial data 
-- analyse delay clusters
+- analyse delay clusters `test_df.py` 
+Total delays in the past 6 days between Finsbury Park to Kings Cross found: 1267
+- chart with Matplotlib
+
+![alt text](image.png)
+
+[In Progress]
 - identify congestion hotspots (routes or stations)
-- map with Folium and charts with Matplotlib
+- map with Folium 
 
 ## Data Visualisation
 - plot stations and train routes 

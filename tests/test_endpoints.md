@@ -26,3 +26,6 @@ format_response.py
 # check delays 
 
 ![alt text](images/image.png)
+
+# plot delays
+
