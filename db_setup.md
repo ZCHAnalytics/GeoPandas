@@ -1,52 +1,68 @@
 db_setup.md
 
-# SQL
-## Install dependencies
-- SQLAlchemy → ORM to interact with PostgreSQL
-- Asyncpg → Async driver for PostgreSQL
-- Alembic → for database migrations in the future  
-
+# 🚄 PostgreSQL Database Setup for Train Tracking
+## 📌 1. Install Dependencies
+I use PostgreSQL with FastAPI using the following dependencies:
 
 `pip install sqlalchemy asyncpg alembic`
 
 ![alt text](images_db/image-2.png)
 
-
+Additionally, install `psycopg2` (PostgreSQL adapter for Python):
 `conda install psycopg2`
 
 ![alt text](images_db/image-3.png)
 
-## Create database
-- open pgAdmin
-- run `psql -U posgres`, enter password 
+## 🗄 2. Create the Database
+🔹 Step 1: Open pgAdmin or PostgreSQL Shell
+Run the following command in your terminal:
+
+`psql -U posgres` and enter password 
+
+🔹 Step 2: Create Database & User
+Create a database for train tracking:
 
 `CREATE DATABASE trains_db;`
-`\l` # check if database exists
+Check if database exists
+`\l` 
+
 ![alt text](images_db/image-1.png)
 
+
+Create a dedicated user:
 `CREATE USER trains_user WITH ENCRYPTED PASSWORD 'password';`
+
 output: CREATE ROLE
-`postgres=# GRANT ALL PRIVILEGES ON DATABASE trains_db TO trains_user;`
+
+`GRANT ALL PRIVILEGES ON DATABASE trains_db TO trains_user;`
+
 output: GRANT
+
 `\q` # exit psql shell 
 
-## Configure db connection
+## 🔧 3. Configure Database Connection
+Create a database connection file:
 `touch database.py`
-- add db credentials to `.env` file 
+Add db credentials to `.env` file 
 
-## Define db pydantic schema
+## 📜 4. Define Database Schema using **SQLAlchemy** and **Pydantic**
 `touch schema.py`
+`touch db_schema.py`
 
-## Connect to the database
-psql -U postgres -d trains_db
+## 🔗 5. Connect to the Database
+
+`psql -U postgres -d trains_db`
  
  ![alt text](images_db/image-4.png)
 
-- check table `\d train_tracking`
-- list all tables `\dt`
+Check database table structure:
+`\d train_tracking`
+
+List all tables:
+`\dt`
 
 
 ![alt text](images_db/image-5.png)
 
-## Add database dependency to FastAPI
-- update `db_main.py` to provide a database session to FastAPI routes
+## 🚀 6. Add Database Dependency to FastAPI
+Finally, update `db_main.py` to provide a database session to FastAPI routes.
