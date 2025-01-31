@@ -9,3 +9,7 @@ env_var.py
 __pycache__/
 *.log
 *.tmp
+
+
+alembic.ini
+version_with_alembic/
