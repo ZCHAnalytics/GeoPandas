@@ -13,6 +13,7 @@ def convert_to_time(value):
     except (ValueError, TypeError):
         return None  # Return None if conversion fails
 
+# SQLAlchemy Database 
 class TrainTracking(Base): # Define the db table 
     __tablename__ = "train_tracking"
 

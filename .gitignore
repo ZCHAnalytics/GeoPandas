@@ -13,3 +13,4 @@ __pycache__/
 
 alembic.ini
 version_with_alembic/
+sql_script.sql

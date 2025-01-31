@@ -3,6 +3,7 @@
 from pydantic import BaseModel
 from datetime import time, date 
 
+# Pydantic Schema for API
 class TrainCreate(BaseModel):
     train_number: str
     operator: str

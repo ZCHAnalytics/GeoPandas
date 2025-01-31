@@ -1,46 +1,54 @@
-# Geospatial 
+# 🚄 Geospatial Train Tracking & Delay Analysis
 
-Credit: Realtime Trains
+Credit: This project was only possible thanks to Realtime Trains API! 
 
-## Set project environment
-- use conda to create an isolated envrionment 
-- dependencies: fastapi, uvicorn, requests, python-dotenv, pandas, matplotlib, folium, geopandas
-- initialise github repository for version control
-- store environment variables to connect to Realtime Trains API securely 
-- test connection to API
+## 📌 Project Overview
+This project analyses train delays between Finsbury Park (FPK) and Kings Cross (KGX) using FastAPI, Pandas, SQLAlchemy, requests, PostgreSQL, and matliplot. Geospatial tools like GeoPandas & Folium are in progress!
 
-## Build the REST API 
-### Set up a FastAPI project
--  initialise a FASTAPI project to structure the API
+## ⚙️ Setting Up the Environment
+- Create an isolated envrionment using Conda 
+- Install dependencies: fastapi, uvicorn, requests, python-dotenv, pandas, matplotlib, folium, geopandas
+- Store API credentials securely in an `.env` file 
+- Initialise a GitHub repository for version control
+- Test API connection to Realtimes Trains
 
-### Create basic endpoints:
-- /api/trains: Get train  services btw stations. param: origin, destination
-- /api/delays: Get data about delayed trains. Param: o, d 
+## 🚀 Building the REST API
+### 🏗️ FastAPI Project Structure
+- Set up FastAPI to handle train delay analysis
+- Define API endpoints:
+    /api/trains → Retrieve train services between stations (params: origin, destination)
+    /api/delays → Get delay statistics for trains (params: origin, destination)
+- 📊 Example API Response
 
 ![alt text](images/image-11.png)
 
 
-## Analyse spatial data 
-- analyse delay clusters `test_df.py` 
+## 🔎  Analyse data  
+- analyse delay clustersover the past 6 days
+- example output from `test_df.py`:
 Total delays in the past 6 days between Finsbury Park to Kings Cross found: 1267
-- chart with Matplotlib
-
+- 📊 Matplotlib Delay Chart
 ![alt text](image.png)
 
-## Create Database 
-## Optimazation with partition and indexing 
+## 🗄️ PostgreSQL Database & Optimization
+### 🔹 Database Setup
+- Store train delay data in PostgreSQL
+- Use SQLAlchemy for database interactions
 
+### 🚀 Query Optimization
+- Partitioning: Improve performance by storing train data in date-based partitions
+- Indexing: Speed up lookups on frequently queried columns (`date`, `destination`)
 
-[In Progress]
-- identify congestion hotspots (routes or stations)
-- map with Folium 
+📉 Performance Comparison
+|Query | Before Optimization	| After Partitioning |
+|--|--|--|--|
+|`SELECT * WHERE date='2025-01-30'`|	**4.113 ms** |	**0.034 ms** |
 
-## Data Visualisation
-- plot stations and train routes 
-- delay heatmaps 
-- operator performance dashborad
-- time-based delay trends
+## 🗺️ Next Steps: Geospatial Mapping
+✅ Identify congestion hotspots (routes/stations)
+✅ Visualize delays on a Folium map
+✅ Operator performance dashboard
 
-## Optional
-### CI/CD with Docker
-### GitHub Actions
+## 🚢 Deployment & CI/CD (Future)
+✅ Docker for containerization
+✅ GitHub Actions for CI/CD
