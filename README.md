@@ -27,6 +27,10 @@ Total delays in the past 6 days between Finsbury Park to Kings Cross found: 1267
 
 ![alt text](image.png)
 
+## Create Database 
+## Optimazation with partition and indexing 
+
+
 [In Progress]
 - identify congestion hotspots (routes or stations)
 - map with Folium 
