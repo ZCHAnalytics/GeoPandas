@@ -1,57 +1,87 @@
 # 🚄 Geospatial Train Tracking & Delay Analysis
-
-**Credit:** This project was only possible thanks to Realtime Trains API! 
-
-## 📌 Project Overview
-This project analyses train delays between Finsbury Park (FPK) and Kings Cross (KGX) using: `fastapi`, `uvicorn`, `requests`, `python-dotenv`, `pandas`, `sqlalchemy`, PostgreSQL, and `matliplot`. Geospatial tools like GeoPandas & Folium are in progress!
+│
+├── outputs/               # 📅 Data storage
+│   │── raw_data_FPK_YYYY-MM-DD.json  # 📝 Unfiltered API responses
+│   │── cleaned_data.csv   # 📈 Processed train data
+│   │── missing_actual_arrivals.csv   # ⚠️ Trains with missing actual arrival times
+│
+├── environment.yml        # 🛠️ Conda environment setup
+│
+└── README.md              # 📗 Project documentation
+```
 
 ## ⚙️ Setting Up the Environment
-- Create an isolated envrionment using Conda 
-- Install dependencies: fastapi, uvicorn, requests, python-dotenv, pandas, matplotlib, folium, geopandas
-- Store API credentials securely in an `.env` file 
-- Initialise a GitHub repository for version control
-- Test API connection to Realtimes Trains
+- Install **Miniconda**, create an isolated environment:
+  ```bash
+  conda create --name trains_env python=3.9
+  conda env create -f environment.yml
+  conda activate trains_env
+  ```
+- Add RTT API credentials to `.env`:
+  ```bash
+  RTT_USERNAME=<your_guess>
+  RTT_PASSWORD=(another_guess>)
+  RTT_ENDPOINT=<your_endpoint>
+  ```
+- Initialise the database:
+  ```bash
+  python db/db_init.py
+  ```
 
-## 🚀 Building the REST API
-### 🏗️ FastAPI Project Structure
-- Set up FastAPI to handle train delay analysis
-- Define API endpoints:
-    - /api/trains → Retrieve train services between stations (params: `origin`, `destination`)
-    - /api/delays → Get delay statistics for trains (params: `origin`, `destination`)
+## 🚀 Running the Train API & Data Pipeline
+When the FastAPI server starts, it automatically **fetches and processes train arrival data for the past 7 days** (including adjusting dates for next-day arrivals) and uploads it to the database. If the database is empty, the server must be running to extract the initial data.
 
-**📊 Example API Response:**
+```bash
+uvicorn main:app --reload
+```
 
-![alt text](images/image-11.png)
+### 🏢 API Endpoints
+| Endpoint | Description |
+|--|--|
+| `/api/station/FPK/date/2025-02-01` | Get arrivals at FPK for a specific date |
+| `/` | Check if API is running |
 
-
-## 🔎  Analysing data  
-- Analyse delay over the past 6 days
-- Example output from `test_df.py`:
-    **Total delays in the past 6 days between Finsbury Park to Kings Cross found: 1267**
-
-**📊 Matplotlib Delay Chart**
-![alt text](images/chart.png)
-
-## 🗄️ PostgreSQL Database & Optimisation
-### 🔹 Database Setup
-- Store train delay data in PostgreSQL
-- Use SQLAlchemy for database interactions
-
-### 🚀 Query Optimisation
-- **Partitioning**: Improve performance by storing train data in date-based partitions
-- **Indexing**: Speed up lookups on frequently queried columns (`date`, `destination`)
-
-**📉 Performance Comparison**
-
-|Query | Before Optimization	| After Partitioning |
+## 📚 PostgreSQL Database Setup
+### 🔄 Data Model
+| Column | Type | Description |
 |--|--|--|
-|`SELECT * WHERE date='2025-01-30'`|	**4.113 ms** |	**0.034 ms** |
+| `run_date` | DATE | Adjusted date of train arrival |
+| `non_adjusted_date` | DATE | Original date as provided by the RTT API |
+| `service_id` | STRING | Unique train ID |
+| `operator` | STRING | Train company |
+| `origin` | STRING | Departure station |
+| `destination` | STRING | Arrival station |
+| `scheduled_arrival` | TIMESTAMP | Scheduled arrival time |
+| `actual_arrival` | TIMESTAMP | Actual arrival time (if available) |
+| `is_actual` | BOOLEAN | True if real arrival recorded |
+| `delay_minutes` | INTEGER | Delay in minutes |
+| `is_passenger_train` | BOOLEAN |	True if the train is a passenger service |
+|  `next_day_arrival`	| BOOLEAN |	True if the arrival occurs after midnight |
+| `was_scheduled_to_stop` |	BOOLEAN	| True if the stop was originally scheduled |
+| `stop_status`	| STRING |	Display status (e.g., "CALL") |
 
-## 🗺️ Next Steps: Geospatial Mapping
-✅ Identify congestion hotspots (routes/stations)
-✅ Visualize delays on a Folium map
-✅ Operator performance dashboard
+### 📈 Query Optimisation
+- **Partitioning**: Splits tables by `run_date`
+- **Indexing**: Speeds up searches on `run_date`, `destination`
+- **Result**: Queries run **120x faster**!
 
-## 🚢 Deployment & CI/CD (Future)
-✅ Docker for containerization
-✅ GitHub Actions for CI/CD
+## 📺 Next Steps
+- **Geospatial Mapping**: Visualising delay hotspots with Folium & GeoPandas
+- **Performance Dashboards**: Operator performance analysis
+- **CI/CD Pipelines**: Automate deployment with Docker & GitHub Actions
+
+## 📢 Disclaimer
+Realtime Trains API data is for **non-commercial use only** and requires attribution.
+
+
+---
+
+### Notes on the Updates:
+- **Project Structure:**  
+  The structure now includes updated names and descriptions reflecting the new database fields and the adjusted ETL process.
+  
+- **Database Schema:**  
+  The Data Model section now includes `non_adjusted_date` (storing the original API date) alongside `run_date` (the adjusted date).
+
+- **ETL Process:**  
+  The "Running the Train API & Data Pipeline" section notes that the project automatically processes data (including date adjustments for next-day arrivals).
