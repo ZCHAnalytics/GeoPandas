@@ -1,9 +1,9 @@
 # 🚄 Geospatial Train Tracking & Delay Analysis
 
-Credit: This project was only possible thanks to Realtime Trains API! 
+**Credit:** This project was only possible thanks to Realtime Trains API! 
 
 ## 📌 Project Overview
-This project analyses train delays between Finsbury Park (FPK) and Kings Cross (KGX) using FastAPI, Pandas, SQLAlchemy, requests, PostgreSQL, and matliplot. Geospatial tools like GeoPandas & Folium are in progress!
+This project analyses train delays between Finsbury Park (FPK) and Kings Cross (KGX) using: `fastapi`, `uvicorn`, `requests`, `python-dotenv`, `pandas`, `sqlalchemy`, PostgreSQL, and `matliplot`. Geospatial tools like GeoPandas & Folium are in progress!
 
 ## ⚙️ Setting Up the Environment
 - Create an isolated envrionment using Conda 
@@ -16,30 +16,33 @@ This project analyses train delays between Finsbury Park (FPK) and Kings Cross (
 ### 🏗️ FastAPI Project Structure
 - Set up FastAPI to handle train delay analysis
 - Define API endpoints:
-    /api/trains → Retrieve train services between stations (params: origin, destination)
-    /api/delays → Get delay statistics for trains (params: origin, destination)
-- 📊 Example API Response
+    - /api/trains → Retrieve train services between stations (params: `origin`, `destination`)
+    - /api/delays → Get delay statistics for trains (params: `origin`, `destination`)
+
+**📊 Example API Response:**
 
 ![alt text](images/image-11.png)
 
 
-## 🔎  Analyse data  
-- analyse delay clustersover the past 6 days
-- example output from `test_df.py`:
-Total delays in the past 6 days between Finsbury Park to Kings Cross found: 1267
-- 📊 Matplotlib Delay Chart
-![alt text](image.png)
+## 🔎  Analysing data  
+- Analyse delay over the past 6 days
+- Example output from `test_df.py`:
+    **Total delays in the past 6 days between Finsbury Park to Kings Cross found: 1267**
 
-## 🗄️ PostgreSQL Database & Optimization
+**📊 Matplotlib Delay Chart**
+![alt text](images/chart.png)
+
+## 🗄️ PostgreSQL Database & Optimisation
 ### 🔹 Database Setup
 - Store train delay data in PostgreSQL
 - Use SQLAlchemy for database interactions
 
-### 🚀 Query Optimization
-- Partitioning: Improve performance by storing train data in date-based partitions
-- Indexing: Speed up lookups on frequently queried columns (`date`, `destination`)
+### 🚀 Query Optimisation
+- **Partitioning**: Improve performance by storing train data in date-based partitions
+- **Indexing**: Speed up lookups on frequently queried columns (`date`, `destination`)
 
-📉 Performance Comparison
+**📉 Performance Comparison**
+
 |Query | Before Optimization	| After Partitioning |
 |--|--|--|
 |`SELECT * WHERE date='2025-01-30'`|	**4.113 ms** |	**0.034 ms** |
