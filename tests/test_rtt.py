@@ -21,11 +21,14 @@ def test_connection():
     try:
         response = requests.get(RTT_URL, auth=(USERNAME, PASSWORD))
         response.raise_for_status()
-        data = response.json()
+        rtt_data = response.json()
         print("Connection successful!")
+        print("\n Raw API Response Keys:", list(rtt_data.keys())) # Debugging and checking dictionary key structure
+    
     except requests.exceptions.RequestException as e:
         print("Connection failed")
         print("Error", e)
+
 
 if __name__=="__main__":
     test_connection()

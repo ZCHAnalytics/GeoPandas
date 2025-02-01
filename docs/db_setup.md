@@ -1,12 +1,11 @@
 db_setup.md
+# Database Setup Guide 
 
 # 🚄 PostgreSQL Database Setup for Train Tracking
 ## 📌 1. Install Dependencies
 I use PostgreSQL with FastAPI using the following dependencies:
 
-`pip install sqlalchemy asyncpg alembic`
-
-![alt text](images_db/image-2.png)
+`pip install sqlalchemy asyncpg`
 
 Additionally, install `psycopg2` (PostgreSQL adapter for Python):
 `conda install psycopg2`
@@ -45,8 +44,7 @@ Create a database connection file:
 `touch database.py`
 Add db credentials to `.env` file 
 
-## 📜 4. Define Database Schema using **SQLAlchemy** and **Pydantic**
-`touch schema.py`
+## 📜 4. Define Database Schema using **SQLAlchemy** 
 `touch db_schema.py`
 
 ## 🔗 5. Connect to the Database
@@ -66,3 +64,23 @@ List all tables:
 
 ## 🚀 6. Add Database Dependency to FastAPI
 Finally, update `db_main.py` to provide a database session to FastAPI routes.
+add:
+```bash
+from sqlalchemy.ext.asyncio import create_async_engine, AsyncSession
+from sqlalchemy.orm import sessionmaker
+import os
+from dotenv import load_dotenv
+
+# Load environment variables
+load_dotenv()
+
+DATABASE_URL = os.getenv("DATABASE_URL")
+
+engine = create_async_engine(DATABASE_URL, future=True)
+
+SessionLocal = sessionmaker(bind=engine, expire_on_commit=False, class_=AsyncSession)
+
+async def get_db():
+    async with SessionLocal() as session:
+        yield session
+```

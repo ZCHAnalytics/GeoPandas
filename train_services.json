@@ -1,0 +1,253 @@
+{
+    "location": {
+        "name": "Finsbury Park",
+        "crs": "FPK",
+        "tiploc": "FNPK",
+        "country": "gb",
+        "system": "nr"
+    },
+    "filter": {
+        "destination": {
+            "name": "London Kings Cross",
+            "crs": "KGX",
+            "tiploc": "KNGX",
+            "country": "gb",
+            "system": "nr"
+        }
+    },
+    "services": [
+        {
+            "locationDetail": {
+                "realtimeActivated": true,
+                "tiploc": "FNPK",
+                "crs": "FPK",
+                "description": "Finsbury Park",
+                "gbttBookedArrival": "00:10:00",
+                "gbttBookedArrivalNextDay": true,
+                "gbttBookedDeparture": "0011",
+                "gbttBookedDepartureNextDay": true,
+                "origin": [
+                    {
+                        "tiploc": "PBRO",
+                        "description": "Peterborough",
+                        "workingTime": "225400",
+                        "publicTime": "2254"
+                    }
+                ],
+                "destination": [
+                    {
+                        "tiploc": "KNGX",
+                        "description": "London Kings Cross",
+                        "workingTime": "001700",
+                        "publicTime": "0017"
+                    }
+                ],
+                "isCall": true,
+                "isPublicCall": true,
+                "realtimeArrival": "00:10:00",
+                "realtimeArrivalActual": true,
+                "realtimeArrivalNextDay": true,
+                "realtimeDeparture": "0011",
+                "realtimeDepartureActual": true,
+                "realtimeDepartureNextDay": true,
+                "platform": "2",
+                "platformConfirmed": true,
+                "platformChanged": false,
+                "displayAs": "CALL",
+                "delay_minutes": 0
+            },
+            "serviceUid": "W23231",
+            "runDate": "2025-01-31",
+            "trainIdentity": "1P73",
+            "runningIdentity": "1P73",
+            "atocCode": "TL",
+            "atocName": "Thameslink",
+            "serviceType": "train",
+            "isPassenger": true
+        },
+        {
+            "locationDetail": {
+                "realtimeActivated": true,
+                "tiploc": "FNPK",
+                "crs": "FPK",
+                "description": "Finsbury Park",
+                "gbttBookedArrival": "00:36:00",
+                "gbttBookedArrivalNextDay": true,
+                "gbttBookedDeparture": "0037",
+                "gbttBookedDepartureNextDay": true,
+                "origin": [
+                    {
+                        "tiploc": "PBRO",
+                        "description": "Peterborough",
+                        "workingTime": "231900",
+                        "publicTime": "2319"
+                    }
+                ],
+                "destination": [
+                    {
+                        "tiploc": "KNGX",
+                        "description": "London Kings Cross",
+                        "workingTime": "004700",
+                        "publicTime": "0047"
+                    }
+                ],
+                "isCall": true,
+                "isPublicCall": true,
+                "realtimeArrival": "00:38:00",
+                "realtimeArrivalActual": true,
+                "realtimeArrivalNextDay": true,
+                "realtimeDeparture": "0039",
+                "realtimeDepartureActual": true,
+                "realtimeDepartureNextDay": true,
+                "platform": "1",
+                "platformConfirmed": true,
+                "platformChanged": true,
+                "displayAs": "CALL",
+                "delay_minutes": 2
+            },
+            "serviceUid": "W23235",
+            "runDate": "2025-01-31",
+            "trainIdentity": "1P75",
+            "runningIdentity": "1P75",
+            "atocCode": "TL",
+            "atocName": "Thameslink",
+            "serviceType": "train",
+            "isPassenger": true
+        },
+        {
+            "locationDetail": {
+                "realtimeActivated": true,
+                "tiploc": "FNPK",
+                "crs": "FPK",
+                "description": "Finsbury Park",
+                "gbttBookedArrival": "00:50:00",
+                "gbttBookedArrivalNextDay": true,
+                "gbttBookedDeparture": "0050",
+                "gbttBookedDepartureNextDay": true,
+                "origin": [
+                    {
+                        "tiploc": "CAMBDGE",
+                        "description": "Cambridge",
+                        "workingTime": "233300",
+                        "publicTime": "2333"
+                    }
+                ],
+                "destination": [
+                    {
+                        "tiploc": "KNGX",
+                        "description": "London Kings Cross",
+                        "workingTime": "005800",
+                        "publicTime": "0058"
+                    }
+                ],
+                "isCall": true,
+                "isPublicCall": true,
+                "realtimeArrival": "00:57:00",
+                "realtimeArrivalActual": true,
+                "realtimeArrivalNextDay": true,
+                "realtimeDeparture": "0058",
+                "realtimeDepartureActual": true,
+                "realtimeDepartureNextDay": true,
+                "platform": "2",
+                "platformConfirmed": true,
+                "platformChanged": false,
+                "displayAs": "CALL",
+                "delay_minutes": 7
+            },
+            "serviceUid": "W23614",
+            "runDate": "2025-01-31",
+            "trainIdentity": "2C77",
+            "runningIdentity": "2C77",
+            "atocCode": "GN",
+            "atocName": "Great Northern",
+            "serviceType": "train",
+            "isPassenger": true
+        },
+        {
+            "locationDetail": {
+                "realtimeActivated": true,
+                "tiploc": "FNPK",
+                "crs": "FPK",
+                "description": "Finsbury Park",
+                "gbttBookedArrival": "01:00:00",
+                "gbttBookedArrivalNextDay": true,
+                "gbttBookedDeparture": "0101",
+                "gbttBookedDepartureNextDay": true,
+                "origin": [
+                    {
+                        "tiploc": "KLYNN",
+                        "description": "Kings Lynn",
+                        "workingTime": "224200",
+                        "publicTime": "2242"
+                    }
+                ],
+                "destination": [
+                    {
+                        "tiploc": "KNGX",
+                        "description": "London Kings Cross",
+                        "workingTime": "010900",
+                        "publicTime": "0109"
+                    }
+                ],
+                "isCall": true,
+                "isPublicCall": true,
+                "realtimeArrival": "01:00:00",
+                "realtimeArrivalActual": true,
+                "realtimeArrivalNextDay": true,
+                "realtimeDeparture": "0101",
+                "realtimeDepartureActual": true,
+                "realtimeDepartureNextDay": true,
+                "platform": "2",
+                "platformConfirmed": true,
+                "platformChanged": false,
+                "displayAs": "CALL",
+                "delay_minutes": 0
+            },
+            "serviceUid": "W23446",
+            "runDate": "2025-01-31",
+            "trainIdentity": "1T97",
+            "runningIdentity": "1T97",
+            "atocCode": "GN",
+            "atocName": "Great Northern",
+            "serviceType": "train",
+            "isPassenger": true
+        },
+        {
+            "locationDetail": {
+                "tiploc": "FNPK",
+                "crs": "FPK",
+                "description": "Finsbury Park",
+                "gbttBookedArrival": "04:46:00",
+                "gbttBookedDeparture": "0446",
+                "origin": [
+                    {
+                        "tiploc": "WLWYNGC",
+                        "description": "Welwyn Garden City",
+                        "workingTime": "030500",
+                        "publicTime": "0305"
+                    }
+                ],
+                "destination": [
+                    {
+                        "tiploc": "KNGX",
+                        "description": "London Kings Cross",
+                        "workingTime": "050100",
+                        "publicTime": "0501"
+                    }
+                ],
+                "isCall": true,
+                "isPublicCall": true,
+                "displayAs": "CALL",
+                "realtimeArrival": null,
+                "delay_minutes": null
+            },
+            "serviceUid": "X97893",
+            "runDate": "2025-02-01",
+            "trainIdentity": "0B00",
+            "atocCode": "GN",
+            "atocName": "Great Northern",
+            "serviceType": "bus",
+            "isPassenger": true
+        }
+    ]
+}

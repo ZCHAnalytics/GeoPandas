@@ -1,7 +1,7 @@
 # db_init.py
 
 from db_main import engine
-from db_schema import Base
+from db.db_schema_alchemy import Base
 import asyncio
 
 async def init_db():
