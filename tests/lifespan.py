@@ -8,8 +8,8 @@ from contextlib import asynccontextmanager
 from db.db_main import engine, get_db
 from db.db_schema_alchemy import TrainTracking
 from tests.db_schema_pydantic import TrainCreate # Pydantic schema for validation
-from services.delays import get_delays_info
-from services.plots import plot_delays_trends
+from services.trains_delays import get_delays_info
+from services.trains_plots import plot_delays_trends
 
 # Default station codes (Finsbury Park → Kings Cross)
 DEFAULT_ORIGIN = "FPK" 

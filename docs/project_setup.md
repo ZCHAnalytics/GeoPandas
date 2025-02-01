@@ -82,4 +82,3 @@ python 01_api_call.py
 ✅ Retrieves API response keys and first key’s data
 
 ![API Response](images/project_setup/api_call.png)
-

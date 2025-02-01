@@ -1,7 +1,7 @@
 # services/delays.py
 
 import pandas as pd 
-from services.realtime_trains import get_train_services, calculate_delays
+from services.trains_main import get_train_services
 from datetime import datetime, timedelta
 
 

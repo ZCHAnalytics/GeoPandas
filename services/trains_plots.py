@@ -6,7 +6,7 @@ import matplotlib
 matplotlib.use("Agg") # Prefvent issues in headless env
 import io
 import pandas as pd
-from services.delays import get_delays_info
+from services.trains_delays import get_delays_info
 
 # Create FastAPI Router instance 
 router = APIRouter()
