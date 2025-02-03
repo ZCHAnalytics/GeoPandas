@@ -210,6 +210,7 @@ non_adjusted_date,run_date,service_id,operator,is_passenger_train,scheduled_arri
 2025-02-03,2025-02-03,W23715,Great Northern,True,13:20,13:20,True,False,Stevenage,Moorgate,True,CALL,0
 2025-02-03,2025-02-03,W26173,Thameslink,True,13:21,13:23,True,False,Cambridge,Brighton,True,CALL,2
 2025-02-03,2025-02-03,W25362,Thameslink,True,13:22,13:20,True,False,Horsham,Peterborough,True,CALL,-2
+2025-02-03,2025-02-03,G26296,Grand Central,False,13:30,13:24,True,False,London Kings Cross,Finsbury Park,True,TERMINATES,-6
 2025-02-03,2025-02-03,W23537,Great Northern,True,13:32,13:32,True,False,London Kings Cross,Cambridge,True,CALL,0
 2025-02-03,2025-02-03,W24026,Great Northern,True,13:35,13:35,True,False,Moorgate,Welwyn Garden City,True,CALL,0
 2025-02-03,2025-02-03,W24043,Great Northern,True,13:35,13:35,True,False,Welwyn Garden City,Moorgate,True,CALL,0
@@ -231,110 +232,110 @@ non_adjusted_date,run_date,service_id,operator,is_passenger_train,scheduled_arri
 2025-02-03,2025-02-03,W26183,Thameslink,True,14:21,14:22,True,False,Cambridge,Brighton,True,CALL,1
 2025-02-03,2025-02-03,W25370,Thameslink,True,14:22,14:20,True,False,Horsham,Peterborough,True,CALL,-2
 2025-02-03,2025-02-03,W23544,Great Northern,True,14:32,14:31,True,False,London Kings Cross,Cambridge,True,CALL,-1
-2025-02-03,2025-02-03,W24038,Great Northern,True,14:35,14:35,False,False,Moorgate,Welwyn Garden City,True,CALL,0
-2025-02-03,2025-02-03,W24055,Great Northern,True,14:35,14:35,False,False,Welwyn Garden City,Moorgate,True,CALL,0
-2025-02-03,2025-02-03,W25367,Thameslink,True,14:36,14:41,False,False,Peterborough,Horsham,True,CALL,5
-2025-02-03,2025-02-03,W26175,Thameslink,True,14:37,14:43,False,False,Brighton,Cambridge,True,CALL,6
-2025-02-03,2025-02-03,W23546,Great Northern,True,14:43,14:46,False,False,Cambridge,London Kings Cross,True,CALL,3
-2025-02-03,2025-02-03,W23723,Great Northern,True,14:50,14:50,False,False,Moorgate,Stevenage,True,CALL,0
-2025-02-03,2025-02-03,W23733,Great Northern,True,14:50,14:50,False,False,Stevenage,Moorgate,True,CALL,0
-2025-02-03,2025-02-03,W26188,Thameslink,True,14:51,14:49,False,False,Cambridge,Brighton,True,CALL,-2
-2025-02-03,2025-02-03,W25374,Thameslink,True,14:52,15:00,False,False,Horsham,Peterborough,True,CALL,8
-2025-02-03,2025-02-03,W23548,Great Northern,True,15:02,15:02,False,False,London Kings Cross,Cambridge,True,CALL,0
-2025-02-03,2025-02-03,W24044,Great Northern,True,15:05,15:05,False,False,Moorgate,Welwyn Garden City,True,CALL,0
-2025-02-03,2025-02-03,W24060,Great Northern,True,15:05,15:05,False,False,Welwyn Garden City,Moorgate,True,CALL,0
-2025-02-03,2025-02-03,W25371,Thameslink,True,15:06,15:07,False,False,Peterborough,Horsham,True,CALL,1
+2025-02-03,2025-02-03,W24038,Great Northern,True,14:35,14:34,True,False,Moorgate,Welwyn Garden City,True,CALL,-1
+2025-02-03,2025-02-03,W24055,Great Northern,True,14:35,14:35,True,False,Welwyn Garden City,Moorgate,True,CALL,0
+2025-02-03,2025-02-03,W25367,Thameslink,True,14:36,14:43,True,False,Peterborough,Horsham,True,CALL,7
+2025-02-03,2025-02-03,W26175,Thameslink,True,14:37,14:43,True,False,Brighton,Cambridge,True,CALL,6
+2025-02-03,2025-02-03,W23546,Great Northern,True,14:43,14:46,True,False,Cambridge,London Kings Cross,True,CALL,3
+2025-02-03,2025-02-03,W23723,Great Northern,True,14:50,14:49,True,False,Moorgate,Stevenage,True,CALL,-1
+2025-02-03,2025-02-03,W23733,Great Northern,True,14:50,14:52,True,False,Stevenage,Moorgate,True,CALL,2
+2025-02-03,2025-02-03,W26188,Thameslink,True,14:51,14:51,True,False,Cambridge,Brighton,True,CALL,0
+2025-02-03,2025-02-03,W25374,Thameslink,True,14:52,14:58,True,False,Horsham,Peterborough,True,CALL,6
+2025-02-03,2025-02-03,W23548,Great Northern,True,15:02,15:01,True,False,London Kings Cross,Cambridge,True,CALL,-1
+2025-02-03,2025-02-03,W24044,Great Northern,True,15:05,15:05,True,False,Moorgate,Welwyn Garden City,True,CALL,0
+2025-02-03,2025-02-03,W24060,Great Northern,True,15:05,15:04,True,False,Welwyn Garden City,Moorgate,True,CALL,-1
+2025-02-03,2025-02-03,W25371,Thameslink,True,15:06,15:11,True,False,Peterborough,Horsham,True,CALL,5
 2025-02-03,2025-02-03,W26181,Thameslink,True,15:07,15:06,False,False,Brighton,Cambridge,True,CANCELLED_CALL,-1
-2025-02-03,2025-02-03,W23926,Great Northern,True,15:13,15:12,False,False,Letchworth,London Kings Cross,True,CALL,-1
-2025-02-03,2025-02-03,W23729,Great Northern,True,15:20,15:20,False,False,Moorgate,Stevenage,True,CALL,0
-2025-02-03,2025-02-03,W23739,Great Northern,True,15:20,15:20,False,False,Stevenage,Moorgate,True,CALL,0
-2025-02-03,2025-02-03,W26193,Thameslink,True,15:21,15:22,False,False,Cambridge,Brighton,True,CALL,1
-2025-02-03,2025-02-03,W25378,Thameslink,True,15:22,15:21,False,False,Horsham,Peterborough,True,CALL,-1
-2025-02-03,2025-02-03,W23551,Great Northern,True,15:32,15:32,False,False,London Kings Cross,Cambridge,True,CALL,0
-2025-02-03,2025-02-03,W24050,Great Northern,True,15:35,15:35,False,False,Moorgate,Welwyn Garden City,True,CALL,0
-2025-02-03,2025-02-03,W24064,Great Northern,True,15:35,15:35,False,False,Welwyn Garden City,Moorgate,True,CALL,0
-2025-02-03,2025-02-03,W25375,Thameslink,True,15:36,15:35,False,False,Peterborough,Horsham,True,CALL,-1
-2025-02-03,2025-02-03,W26185,Thameslink,True,15:37,15:36,False,False,Brighton,Cambridge,True,CALL,-1
-2025-02-03,2025-02-03,W23553,Great Northern,True,15:43,15:42,False,False,Cambridge,London Kings Cross,True,CALL,-1
-2025-02-03,2025-02-03,W23735,Great Northern,True,15:50,15:50,False,False,Moorgate,Stevenage,True,CALL,0
-2025-02-03,2025-02-03,W26198,Thameslink,True,15:51,15:49,False,False,Cambridge,Brighton,True,CALL,-2
-2025-02-03,2025-02-03,W23746,Great Northern,True,15:50,15:50,False,False,Stevenage,Moorgate,True,CALL,0
-2025-02-03,2025-02-03,W25382,Thameslink,True,15:52,15:51,False,False,Horsham,Peterborough,True,CALL,-1
-2025-02-03,2025-02-03,W23555,Great Northern,True,16:02,16:02,False,False,London Kings Cross,Cambridge,True,CALL,0
-2025-02-03,2025-02-03,W24056,Great Northern,True,16:05,16:05,False,False,Moorgate,Welwyn Garden City,True,CALL,0
-2025-02-03,2025-02-03,W25379,Thameslink,True,16:06,16:05,False,False,Peterborough,Horsham,True,CALL,-1
-2025-02-03,2025-02-03,W24070,Great Northern,True,16:05,16:05,False,False,Welwyn Garden City,Moorgate,True,CALL,0
-2025-02-03,2025-02-03,W26191,Thameslink,True,16:07,16:06,False,False,Brighton,Cambridge,True,CALL,-1
-2025-02-03,2025-02-03,W23928,Great Northern,True,16:13,16:12,False,False,Letchworth,London Kings Cross,True,CALL,-1
-2025-02-03,2025-02-03,W24062,Great Northern,True,16:15,16:15,False,False,Moorgate,Welwyn Garden City,True,CALL,0
-2025-02-03,2025-02-03,W23750,Great Northern,True,16:18,16:18,False,False,Stevenage,Moorgate,True,CALL,0
-2025-02-03,2025-02-03,W26203,Thameslink,True,16:21,16:19,False,False,Cambridge,Brighton,True,CALL,-2
-2025-02-03,2025-02-03,W25386,Thameslink,True,16:22,16:21,False,False,Horsham,Peterborough,True,CALL,-1
-2025-02-03,2025-02-03,W23742,Great Northern,True,16:25,16:25,False,False,Moorgate,Stevenage,True,CALL,0
-2025-02-03,2025-02-03,W23855,Great Northern,True,16:26,16:25,False,False,Welwyn Garden City,Moorgate,True,CALL,-1
-2025-02-03,2025-02-03,W23558,Great Northern,True,16:32,16:32,False,False,London Kings Cross,Cambridge,True,CALL,0
-2025-02-03,2025-02-03,W24066,Great Northern,True,16:33,16:33,False,False,Moorgate,Welwyn Garden City,True,CALL,0
-2025-02-03,2025-02-03,W25383,Thameslink,True,16:36,16:35,False,False,Peterborough,Horsham,True,CALL,-1
-2025-02-03,2025-02-03,W26195,Thameslink,True,16:37,16:36,False,False,Brighton,Cambridge,True,CALL,-1
-2025-02-03,2025-02-03,W24077,Great Northern,True,16:38,16:38,False,False,Welwyn Garden City,Moorgate,True,CALL,0
-2025-02-03,2025-02-03,W23468,Great Northern,True,16:40,16:40,False,False,Moorgate,Hertford North,True,CALL,0
-2025-02-03,2025-02-03,W23560,Great Northern,True,16:43,16:42,False,False,Cambridge,London Kings Cross,True,CALL,-1
-2025-02-03,2025-02-03,W26958,Thameslink,True,16:44,16:43,False,False,Sevenoaks,Welwyn Garden City,True,CALL,-1
-2025-02-03,2025-02-03,W23854,Great Northern,True,16:48,16:48,False,False,Moorgate,Welwyn Garden City,True,CALL,0
-2025-02-03,2025-02-03,W23756,Great Northern,True,16:51,16:50,False,False,Stevenage,Moorgate,True,CALL,-1
-2025-02-03,2025-02-03,W26208,Thameslink,True,16:51,16:49,False,False,Cambridge,Brighton,True,CALL,-2
-2025-02-03,2025-02-03,W25390,Thameslink,True,16:52,16:51,False,False,Horsham,Peterborough,True,CALL,-1
-2025-02-03,2025-02-03,W23748,Great Northern,True,16:55,16:55,False,False,Moorgate,Stevenage,True,CALL,0
-2025-02-03,2025-02-03,W24076,Great Northern,True,16:56,16:55,False,False,Welwyn Garden City,Moorgate,True,CALL,-1
-2025-02-03,2025-02-03,W23562,Great Northern,True,17:02,17:02,False,False,London Kings Cross,Cambridge,True,CALL,0
-2025-02-03,2025-02-03,W23470,Great Northern,True,17:03,17:02,False,False,Hertford North,Moorgate,True,CALL,-1
-2025-02-03,2025-02-03,W24072,Great Northern,True,17:03,17:03,False,False,Moorgate,Welwyn Garden City,True,CALL,0
-2025-02-03,2025-02-03,W25387,Thameslink,True,17:06,17:05,False,False,Peterborough,Horsham,True,CALL,-1
-2025-02-03,2025-02-03,W26201,Thameslink,True,17:07,17:06,False,False,Brighton,Cambridge,True,CALL,-1
-2025-02-03,2025-02-03,W23469,Great Northern,True,17:09,17:09,False,False,Moorgate,Hertford North,True,CALL,0
-2025-02-03,2025-02-03,W24083,Great Northern,True,17:10,17:10,False,False,Welwyn Garden City,Moorgate,True,CALL,0
-2025-02-03,2025-02-03,W23565,Great Northern,True,17:14,17:13,False,False,Cambridge,London Kings Cross,True,CALL,-1
-2025-02-03,2025-02-03,W26959,Thameslink,True,17:14,17:13,False,False,Sevenoaks,Welwyn Garden City,True,CALL,-1
-2025-02-03,2025-02-03,W23856,Great Northern,True,17:15,17:15,False,False,Moorgate,Welwyn Garden City,True,CALL,0
-2025-02-03,2025-02-03,W23842,Great Northern,True,17:21,17:21,False,False,Moorgate,Gordon Hill,True,CALL,0
-2025-02-03,2025-02-03,W26213,Thameslink,True,17:21,17:19,False,False,Cambridge,Brighton,True,CALL,-2
-2025-02-03,2025-02-03,W23761,Great Northern,True,17:20,17:20,False,False,Stevenage,Moorgate,True,CALL,0
-2025-02-03,2025-02-03,W25394,Thameslink,True,17:22,17:21,False,False,Horsham,Peterborough,True,CALL,-1
-2025-02-03,2025-02-03,W23858,Great Northern,True,17:26,17:25,False,False,Welwyn Garden City,Moorgate,True,CALL,-1
-2025-02-03,2025-02-03,W23837,Great Northern,True,17:27,17:27,False,False,Moorgate,Stevenage,True,CALL,0
-2025-02-03,2025-02-03,W26882,Thameslink,True,17:28,17:28,False,False,Welwyn Garden City,Sevenoaks,True,CALL,0
-2025-02-03,2025-02-03,W23567,Great Northern,True,17:32,17:32,False,False,London Kings Cross,Cambridge,True,CALL,0
-2025-02-03,2025-02-03,W23473,Great Northern,True,17:33,17:33,False,False,Hertford North,Moorgate,True,CALL,0
-2025-02-03,2025-02-03,W24079,Great Northern,True,17:33,17:33,False,False,Moorgate,Welwyn Garden City,True,CALL,0
-2025-02-03,2025-02-03,W25391,Thameslink,True,17:36,17:35,False,False,Peterborough,Horsham,True,CALL,-1
-2025-02-03,2025-02-03,W26205,Thameslink,True,17:37,17:36,False,False,Brighton,Cambridge,True,CALL,-1
-2025-02-03,2025-02-03,W23471,Great Northern,True,17:39,17:39,False,False,Moorgate,Hertford North,True,CALL,0
-2025-02-03,2025-02-03,W24090,Great Northern,True,17:41,17:40,False,False,Welwyn Garden City,Moorgate,True,CALL,-1
-2025-02-03,2025-02-03,W23569,Great Northern,True,17:44,17:43,False,False,Cambridge,London Kings Cross,True,CALL,-1
-2025-02-03,2025-02-03,W26960,Thameslink,True,17:44,17:43,False,False,Sevenoaks,Welwyn Garden City,True,CALL,-1
-2025-02-03,2025-02-03,W23857,Great Northern,True,17:45,17:45,False,False,Moorgate,Welwyn Garden City,True,CALL,0
+2025-02-03,2025-02-03,W23926,Great Northern,True,15:13,15:17,True,False,Letchworth,London Kings Cross,True,CALL,4
+2025-02-03,2025-02-03,W23729,Great Northern,True,15:20,15:20,True,False,Moorgate,Stevenage,True,CALL,0
+2025-02-03,2025-02-03,W23739,Great Northern,True,15:20,15:22,True,False,Stevenage,Moorgate,True,CALL,2
+2025-02-03,2025-02-03,W26193,Thameslink,True,15:21,15:25,True,False,Cambridge,Brighton,True,CALL,4
+2025-02-03,2025-02-03,W25378,Thameslink,True,15:22,15:21,True,False,Horsham,Peterborough,True,CALL,-1
+2025-02-03,2025-02-03,W23551,Great Northern,True,15:32,15:31,True,False,London Kings Cross,Cambridge,True,CALL,-1
+2025-02-03,2025-02-03,W24050,Great Northern,True,15:35,15:34,True,False,Moorgate,Welwyn Garden City,True,CALL,-1
+2025-02-03,2025-02-03,W24064,Great Northern,True,15:35,15:35,True,False,Welwyn Garden City,Moorgate,True,CALL,0
+2025-02-03,2025-02-03,W25375,Thameslink,True,15:36,15:38,True,False,Peterborough,Horsham,True,CALL,2
+2025-02-03,2025-02-03,W26185,Thameslink,True,15:37,15:36,True,False,Brighton,Cambridge,True,CALL,-1
+2025-02-03,2025-02-03,W23553,Great Northern,True,15:43,15:43,True,False,Cambridge,London Kings Cross,True,CALL,0
+2025-02-03,2025-02-03,W23735,Great Northern,True,15:50,15:50,True,False,Moorgate,Stevenage,True,CALL,0
+2025-02-03,2025-02-03,W26198,Thameslink,True,15:51,15:54,True,False,Cambridge,Brighton,True,CALL,3
+2025-02-03,2025-02-03,W23746,Great Northern,True,15:50,15:50,True,False,Stevenage,Moorgate,True,CALL,0
+2025-02-03,2025-02-03,W25382,Thameslink,True,15:52,15:50,True,False,Horsham,Peterborough,True,CALL,-2
+2025-02-03,2025-02-03,W23555,Great Northern,True,16:02,16:02,True,False,London Kings Cross,Cambridge,True,CALL,0
+2025-02-03,2025-02-03,W24056,Great Northern,True,16:05,16:04,True,False,Moorgate,Welwyn Garden City,True,CALL,-1
+2025-02-03,2025-02-03,W25379,Thameslink,True,16:06,16:09,True,False,Peterborough,Horsham,True,CALL,3
+2025-02-03,2025-02-03,W24070,Great Northern,True,16:05,16:07,True,False,Welwyn Garden City,Moorgate,True,CALL,2
+2025-02-03,2025-02-03,W26191,Thameslink,True,16:07,16:05,True,False,Brighton,Cambridge,True,CALL,-2
+2025-02-03,2025-02-03,W23928,Great Northern,True,16:13,16:15,True,False,Letchworth,London Kings Cross,True,CALL,2
+2025-02-03,2025-02-03,W24062,Great Northern,True,16:15,16:15,True,False,Moorgate,Welwyn Garden City,True,CALL,0
+2025-02-03,2025-02-03,W23750,Great Northern,True,16:18,16:20,True,False,Stevenage,Moorgate,True,CALL,2
+2025-02-03,2025-02-03,W26203,Thameslink,True,16:21,16:25,True,False,Cambridge,Brighton,True,CALL,4
+2025-02-03,2025-02-03,W25386,Thameslink,True,16:22,16:20,True,False,Horsham,Peterborough,True,CALL,-2
+2025-02-03,2025-02-03,W23742,Great Northern,True,16:25,16:24,True,False,Moorgate,Stevenage,True,CALL,-1
+2025-02-03,2025-02-03,W23855,Great Northern,True,16:26,16:25,False,False,Welwyn Garden City,Moorgate,True,CANCELLED_CALL,-1
+2025-02-03,2025-02-03,W23558,Great Northern,True,16:32,16:31,True,False,London Kings Cross,Cambridge,True,CALL,-1
+2025-02-03,2025-02-03,W24066,Great Northern,True,16:33,16:32,True,False,Moorgate,Welwyn Garden City,True,CALL,-1
+2025-02-03,2025-02-03,W25383,Thameslink,True,16:36,16:42,True,False,Peterborough,Horsham,True,CALL,6
+2025-02-03,2025-02-03,W26195,Thameslink,True,16:37,16:35,True,False,Brighton,Cambridge,True,CALL,-2
+2025-02-03,2025-02-03,W24077,Great Northern,True,16:38,16:39,True,False,Welwyn Garden City,Moorgate,True,CALL,1
+2025-02-03,2025-02-03,W23468,Great Northern,True,16:40,16:40,False,False,Moorgate,Hertford North,True,CANCELLED_CALL,0
+2025-02-03,2025-02-03,W23560,Great Northern,True,16:43,16:45,True,False,Cambridge,London Kings Cross,True,CALL,2
+2025-02-03,2025-02-03,W26958,Thameslink,True,16:44,16:43,False,False,Sevenoaks,Welwyn Garden City,True,CANCELLED_CALL,-1
+2025-02-03,2025-02-03,W23854,Great Northern,True,16:48,16:48,True,False,Moorgate,Welwyn Garden City,True,CALL,0
+2025-02-03,2025-02-03,W23756,Great Northern,True,16:51,16:50,True,False,Stevenage,Moorgate,True,CALL,-1
+2025-02-03,2025-02-03,W26208,Thameslink,True,16:51,16:53,True,False,Cambridge,Brighton,True,CALL,2
+2025-02-03,2025-02-03,W25390,Thameslink,True,16:52,16:54,True,False,Horsham,Peterborough,True,CALL,2
+2025-02-03,2025-02-03,W24076,Great Northern,True,16:56,17:01,True,False,Welwyn Garden City,Moorgate,True,CALL,5
+2025-02-03,2025-02-03,W23748,Great Northern,True,16:55,16:54,True,False,Moorgate,Stevenage,True,CALL,-1
+2025-02-03,2025-02-03,W23562,Great Northern,True,17:02,17:02,True,False,London Kings Cross,Cambridge,True,CALL,0
+2025-02-03,2025-02-03,W23470,Great Northern,True,17:03,17:04,True,False,Hertford North,Moorgate,True,CALL,1
+2025-02-03,2025-02-03,W24072,Great Northern,True,17:03,17:03,False,False,Moorgate,Welwyn Garden City,True,CANCELLED_CALL,0
+2025-02-03,2025-02-03,W25387,Thameslink,True,17:06,17:10,True,False,Peterborough,Horsham,True,CALL,4
+2025-02-03,2025-02-03,W26201,Thameslink,True,17:07,17:05,True,False,Brighton,Cambridge,True,CALL,-2
+2025-02-03,2025-02-03,W23469,Great Northern,True,17:09,17:08,True,False,Moorgate,Hertford North,True,CALL,-1
+2025-02-03,2025-02-03,W24083,Great Northern,True,17:10,17:14,True,False,Welwyn Garden City,Moorgate,True,CALL,4
+2025-02-03,2025-02-03,W23565,Great Northern,True,17:14,17:13,False,False,Cambridge,London Kings Cross,True,CANCELLED_CALL,-1
+2025-02-03,2025-02-03,W26959,Thameslink,True,17:14,17:13,True,False,Sevenoaks,Welwyn Garden City,True,CALL,-1
+2025-02-03,2025-02-03,W23856,Great Northern,True,17:15,17:15,True,False,Moorgate,Welwyn Garden City,True,CALL,0
+2025-02-03,2025-02-03,W23842,Great Northern,True,17:21,17:21,True,False,Moorgate,Gordon Hill,True,CALL,0
+2025-02-03,2025-02-03,W26213,Thameslink,True,17:21,17:19,False,False,Three Bridges,Brighton,True,CANCELLED_CALL,-2
+2025-02-03,2025-02-03,W23761,Great Northern,True,17:20,17:20,True,False,Stevenage,Moorgate,True,CALL,0
+2025-02-03,2025-02-03,W25394,Thameslink,True,17:22,17:24,True,False,Horsham,Peterborough,True,CALL,2
+2025-02-03,2025-02-03,W23858,Great Northern,True,17:26,17:27,True,False,Welwyn Garden City,Moorgate,True,CALL,1
+2025-02-03,2025-02-03,W23837,Great Northern,True,17:27,17:27,True,False,Moorgate,Stevenage,True,CALL,0
+2025-02-03,2025-02-03,W26882,Thameslink,True,17:28,17:29,True,False,Welwyn Garden City,Sevenoaks,True,CALL,1
+2025-02-03,2025-02-03,W23567,Great Northern,True,17:32,17:31,True,False,London Kings Cross,Cambridge,True,CALL,-1
+2025-02-03,2025-02-03,W23473,Great Northern,True,17:33,17:36,True,False,Hertford North,Moorgate,True,CALL,3
+2025-02-03,2025-02-03,W24079,Great Northern,True,17:33,17:33,True,False,Moorgate,Welwyn Garden City,True,CALL,0
+2025-02-03,2025-02-03,W25391,Thameslink,True,17:36,17:37,True,False,Peterborough,Horsham,True,CALL,1
+2025-02-03,2025-02-03,W26205,Thameslink,True,17:37,17:36,True,False,Brighton,Cambridge,True,CALL,-1
+2025-02-03,2025-02-03,W23471,Great Northern,True,17:39,17:43,True,False,Moorgate,Hertford North,True,CALL,4
+2025-02-03,2025-02-03,W24090,Great Northern,True,17:41,17:42,True,False,Welwyn Garden City,Moorgate,True,CALL,1
+2025-02-03,2025-02-03,W23569,Great Northern,True,17:44,17:44,True,False,Cambridge,London Kings Cross,True,CALL,0
+2025-02-03,2025-02-03,W26960,Thameslink,True,17:44,17:43,True,False,Sevenoaks,Welwyn Garden City,True,CALL,-1
+2025-02-03,2025-02-03,W23857,Great Northern,True,17:45,17:48,False,False,Moorgate,Welwyn Garden City,True,CALL,3
 2025-02-03,2025-02-03,W23766,Great Northern,True,17:49,17:48,False,False,Stevenage,Moorgate,True,CALL,-1
 2025-02-03,2025-02-03,W23843,Great Northern,True,17:51,17:51,False,False,Moorgate,Gordon Hill,True,CALL,0
-2025-02-03,2025-02-03,W26218,Thameslink,True,17:51,17:49,False,False,Cambridge,Brighton,True,CALL,-2
-2025-02-03,2025-02-03,W25398,Thameslink,True,17:52,17:51,False,False,Horsham,Peterborough,True,CALL,-1
-2025-02-03,2025-02-03,W23860,Great Northern,True,17:56,17:55,False,False,Welwyn Garden City,Moorgate,True,CALL,-1
+2025-02-03,2025-02-03,W26218,Thameslink,True,17:51,18:05,False,False,Cambridge,Brighton,True,CALL,14
+2025-02-03,2025-02-03,W25398,Thameslink,True,17:52,17:56,False,False,Horsham,Peterborough,True,CALL,4
+2025-02-03,2025-02-03,W23860,Great Northern,True,17:56,17:56,False,False,Welwyn Garden City,Moorgate,True,CALL,0
 2025-02-03,2025-02-03,W23839,Great Northern,True,17:57,17:57,False,False,Moorgate,Stevenage,True,CALL,0
-2025-02-03,2025-02-03,W26888,Thameslink,True,17:58,17:58,False,False,Welwyn Garden City,Sevenoaks,True,CALL,0
+2025-02-03,2025-02-03,W26888,Thameslink,True,17:58,17:59,False,False,Welwyn Garden City,Sevenoaks,True,CALL,1
 2025-02-03,2025-02-03,W23571,Great Northern,True,18:02,18:02,False,False,London Kings Cross,Cambridge,True,CALL,0
-2025-02-03,2025-02-03,W23475,Great Northern,True,18:03,18:03,False,False,Hertford North,Moorgate,True,CALL,0
+2025-02-03,2025-02-03,W23475,Great Northern,True,18:03,18:03,False,False,Finsbury Park,Moorgate,True,STARTS,0
 2025-02-03,2025-02-03,W24086,Great Northern,True,18:03,18:03,False,False,Moorgate,Welwyn Garden City,True,CALL,0
-2025-02-03,2025-02-03,W25395,Thameslink,True,18:06,18:05,False,False,Peterborough,Horsham,True,CALL,-1
-2025-02-03,2025-02-03,W26211,Thameslink,True,18:07,18:06,False,False,Brighton,Cambridge,True,CALL,-1
+2025-02-03,2025-02-03,W25395,Thameslink,True,18:06,18:12,False,False,Peterborough,Horsham,True,CALL,6
+2025-02-03,2025-02-03,W26211,Thameslink,True,18:07,18:08,False,False,Brighton,Cambridge,True,CALL,1
 2025-02-03,2025-02-03,W23472,Great Northern,True,18:10,18:10,False,False,Moorgate,Hertford North,True,CALL,0
-2025-02-03,2025-02-03,W24095,Great Northern,True,18:11,18:10,False,False,Welwyn Garden City,Moorgate,True,CALL,-1
-2025-02-03,2025-02-03,W23574,Great Northern,True,18:14,18:13,False,False,Cambridge,London Kings Cross,True,CALL,-1
+2025-02-03,2025-02-03,W24095,Great Northern,True,18:11,18:11,False,False,Welwyn Garden City,Moorgate,True,CALL,0
+2025-02-03,2025-02-03,W23574,Great Northern,True,18:14,18:15,False,False,Cambridge,London Kings Cross,True,CALL,1
 2025-02-03,2025-02-03,W26962,Thameslink,True,18:14,18:13,False,False,Sevenoaks,Welwyn Garden City,True,CALL,-1
 2025-02-03,2025-02-03,W23859,Great Northern,True,18:18,18:18,False,False,Moorgate,Welwyn Garden City,True,CALL,0
 2025-02-03,2025-02-03,W23772,Great Northern,True,18:18,18:18,False,False,Stevenage,Moorgate,True,CALL,0
 2025-02-03,2025-02-03,W26223,Thameslink,True,18:21,18:19,False,False,Cambridge,Brighton,True,CALL,-2
 2025-02-03,2025-02-03,W25402,Thameslink,True,18:22,18:21,False,False,Horsham,Peterborough,True,CALL,-1
 2025-02-03,2025-02-03,W23765,Great Northern,True,18:25,18:25,False,False,Moorgate,Stevenage,True,CALL,0
-2025-02-03,2025-02-03,W23862,Great Northern,True,18:26,18:25,False,False,Welwyn Garden City,Moorgate,True,CALL,-1
+2025-02-03,2025-02-03,W23862,Great Northern,True,18:26,18:25,False,False,Welwyn Garden City,Moorgate,True,CANCELLED_CALL,-1
 2025-02-03,2025-02-03,W26894,Thameslink,True,18:28,18:28,False,False,Welwyn Garden City,Sevenoaks,True,CALL,0
 2025-02-03,2025-02-03,W23576,Great Northern,True,18:32,18:32,False,False,London Kings Cross,Cambridge,True,CALL,0
 2025-02-03,2025-02-03,W23477,Great Northern,True,18:33,18:33,False,False,Hertford North,Moorgate,True,CALL,0
@@ -344,7 +345,7 @@ non_adjusted_date,run_date,service_id,operator,is_passenger_train,scheduled_arri
 2025-02-03,2025-02-03,W23474,Great Northern,True,18:40,18:40,False,False,Moorgate,Hertford North,True,CALL,0
 2025-02-03,2025-02-03,W24101,Great Northern,True,18:41,18:40,False,False,Welwyn Garden City,Moorgate,True,CALL,-1
 2025-02-03,2025-02-03,W23578,Great Northern,True,18:44,18:43,False,False,Cambridge,London Kings Cross,True,CALL,-1
-2025-02-03,2025-02-03,W26964,Thameslink,True,18:44,18:43,False,False,Sevenoaks,Welwyn Garden City,True,CALL,-1
+2025-02-03,2025-02-03,W26964,Thameslink,True,18:44,18:44,False,False,Sevenoaks,Welwyn Garden City,True,CALL,0
 2025-02-03,2025-02-03,W23861,Great Northern,True,18:48,18:48,False,False,Moorgate,Welwyn Garden City,True,CALL,0
 2025-02-03,2025-02-03,W23778,Great Northern,True,18:48,18:48,False,False,Stevenage,Moorgate,True,CALL,0
 2025-02-03,2025-02-03,W26228,Thameslink,True,18:51,18:49,False,False,Cambridge,Brighton,True,CALL,-2
@@ -354,7 +355,7 @@ non_adjusted_date,run_date,service_id,operator,is_passenger_train,scheduled_arri
 2025-02-03,2025-02-03,W26900,Thameslink,True,18:58,18:58,False,False,Welwyn Garden City,Sevenoaks,True,CALL,0
 2025-02-03,2025-02-03,W23893,Great Northern,True,19:02,19:02,False,False,London Kings Cross,Letchworth,True,CALL,0
 2025-02-03,2025-02-03,W23479,Great Northern,True,19:03,19:03,False,False,Hertford North,Moorgate,True,CALL,0
-2025-02-03,2025-02-03,W24097,Great Northern,True,19:03,19:03,False,False,Moorgate,Welwyn Garden City,True,CALL,0
+2025-02-03,2025-02-03,W24097,Great Northern,True,19:03,19:03,False,False,Moorgate,Welwyn Garden City,True,CANCELLED_CALL,0
 2025-02-03,2025-02-03,W25403,Thameslink,True,19:06,19:05,False,False,Peterborough,Horsham,True,CALL,-1
 2025-02-03,2025-02-03,W23476,Great Northern,True,19:10,19:10,False,False,Moorgate,Hertford North,True,CALL,0
 2025-02-03,2025-02-03,W26221,Thameslink,True,19:07,19:06,False,False,Brighton,Cambridge,True,CALL,-1

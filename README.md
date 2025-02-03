@@ -21,6 +21,17 @@ This project analyzes train delays at **Finsbury Park (FPK)**, capturing **all a
 │   │── db_schema.py       # 📚 Defines SQLAlchemy models
 │   │── db_init.py         # 🛠️ Initialises PostgreSQL tables
 │
+├── geospatial/            # 🛠️ v4 - new folder for geospatial mapping  
+│   │── mapping.py         #    v4 New file for map creations
+|
+├── data/            # 🛠️ v4 - new folder for extacted geospatial data 
+│   │── station_data.json #    v4
+|   |── station_coord.csv  #   v4 
+|
+├── html_map/            # 🛠️ v4 - new folder for train maps 
+│   │── train_delays_map    # v 4 In progress 
+|   
+|
 ├── services/              # 🛠️ API interaction scripts
 │   │── trains_main.py     # 🚃 Fetches arrival data & structures JSON
 │
@@ -95,8 +106,12 @@ uvicorn main:app --reload
 - **Indexing**: Speeds up searches on `run_date`, `destination`
 - **Result**: Queries run **120x faster**!
 
+
+### **Geospatial Mapping**
+
+- Visualising delay hotspots with Folium & GeoPandas
+
 ## 📺 Next Steps
-- **Geospatial Mapping**: Visualising delay hotspots with Folium & GeoPandas
 - **Performance Dashboards**: Operator performance analysis
 - **CI/CD Pipelines**: Automate deployment with Docker & GitHub Actions
 
