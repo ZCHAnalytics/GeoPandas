@@ -3,38 +3,47 @@
 import json
 import sys
 import os
+import logging
 from datetime import datetime, timedelta
 
 # ✅ Add project root directory to Python path
+# TODO: Remove the following sys.path modification once the project is properly packaged
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from services.trains_main import get_train_arrivals  # Import function
+
+# Set up logging
+logger = logging.getLogger(__name__)
+logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
 
 # ✅ Define output directory
 OUTPUT_DIR = "outputs"
 os.makedirs(OUTPUT_DIR, exist_ok=True)  # Create the folder if it doesn't exist
 
-def extract_data(station: str, days: int=7):
+def extract_data(station: str, days: int = 7) -> dict:
     all_data = {"services": []} # Initialise empty contrainer
 
     for i in range(days):
+        # Calculate the date string for 'i' days ago
         date =  (datetime.today() - timedelta(days=i)).strftime("%Y-%m-%d")
-        print(f" Fetching data for {date}...")
+        logger.info("Fetching data for %s...", str(date))
 
         raw_data = get_train_arrivals(station, date)
     
         if raw_data and "services" in raw_data:
+             # Append to full dataset
             all_data["services"].extend(raw_data["services"]) # Append to full dataset 
         else: 
-            print(f"❌ No valid train data found for {station} on {date}")
+            logger.error("❌ No valid train data found for %s on %s", station, str(date))
             
     # ✅ Save combined JSON
     output_path = f"outputs/raw_data_{station}.json"
     with open(output_path, "w") as f:
         json.dump(raw_data, f, indent=4)
-    print(f"raw data saved to {output_path}")
+    logger.info("Raw data saved to %s", output_path)
 
-    print(f"✅ Extracted {len(all_data)} total train records over {days} days.")
+    logging.info("✅ Extracted %d total train records over %d.", len(all_data["services"]), days)
+    
     return all_data
 
 # ✅ Call the function when script runs

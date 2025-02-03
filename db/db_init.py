@@ -3,6 +3,11 @@
 import asyncio
 from db_main import engine
 from db_schema_alchemy import Base
+import logging
+
+# Set up logging
+logger = logging.getLogger(__name__)
+logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
 
 async def init_db():
     """
@@ -10,11 +15,15 @@ async def init_db():
     - (Optional) Drops all existing tables to start fresh.
     - Creates tables based on the SQLAlchemy schema.
     """
-    async with engine.begin() as conn:
-        await conn.run_sync(Base.metadata.drop_all)  # Clears existing tables
-        await conn.run_sync(Base.metadata.create_all)  # Creates new tables if they don't exist 
-    print("✅ Database and tables created!")
+    try: 
 
+        async with engine.begin() as conn:
+            await conn.run_sync(Base.metadata.drop_all)  # Clears existing tables
+            await conn.run_sync(Base.metadata.create_all)  # Creates new tables if they don't exist 
+        logger.info("✅ Database and tables created!")
+    except Exception as e:
+        logger.error("Failed to initialised the datbase: %s", e)
+        
 # Run db initialisation when the script is executed 
 if __name__ == "__main__":
     # Fix event loop policy for Windows compatability 

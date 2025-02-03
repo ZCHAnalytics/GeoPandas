@@ -1,10 +1,18 @@
 # utils.py - Load cleaned data into PostgreSQL
 
 import pandas as pd
+from datetime import timedelta
 from sqlalchemy.ext.asyncio import AsyncSession
+import logging
+
+# Project modules 
 from db.db_main import engine
 from db.db_schema_alchemy import TrainTracking
 
+# ✅  Set up logging for this module
+logger = logging.getLogger(__name__)
+
+                                               
 async def upload_to_db(df_clean: pd.DataFrame):  
     """
     Upload cleaned train data from a DataFrame to PostgreSQL.
@@ -13,22 +21,41 @@ async def upload_to_db(df_clean: pd.DataFrame):
         df_clean (pd.DataFrame): Cleaned train data.
     """
     if df_clean.empty:
-        print("❌ No data to upload. DataFrame is empty.")
+        logger.error("❌ No data to upload. DataFrame is empty.")
         return
+    # Create a new column for original , non-adjusted run_date
+    df_clean["non_adjusted_date"] = pd.to_datetime(df_clean["run_date"]).dt.date
+  
+    # ✅  Adjust arrivals past mignight
+    def adjust_date(row):
+        """
+        Adjusts the run_date if the next_day_arrival flag is True.
+        Returns a datetime object.
+        """
+       # Use the non_adjusted_date as the base date, if there is a flag for next_day_arrival present (True), add one more day 
+        base_date = pd.to_datetime(row["non_adjusted_date"])
+        if row.get("next_day_arrival", True):
+            return base_date + timedelta(days=1)
+        return base_date
     
-    # ✅ Convert 'run_date' from string to datetime.date
-    print("Converting run_date string to datetime.date type")
-    df_clean["run_date"] = pd.to_datetime(df_clean["run_date"]).dt.date
-
+    # Create a new column with the adjusted run_date
+    logger.info("Converting adjusted_run_date string to datetime.date type")
+    df_clean["run_date"] = df_clean.apply(adjust_date, axis=1).dt.date
+        
     # ✅ Convert 'scheduled_arrival' and 'actual_arrival' to proper TIMESTAMP format
+    
+    logger.info("Converting 'scheduled_arrival' and 'actual_arrival' to TIMESTAMP format.")
+
     df_clean["scheduled_arrival"] = pd.to_datetime(df_clean["run_date"].astype(str) + " " + df_clean["scheduled_arrival"])
     df_clean["actual_arrival"] = pd.to_datetime(df_clean["run_date"].astype(str) + " " + df_clean["actual_arrival"])
 
     async with AsyncSession(engine) as db:
         try:
+            # Convert DataFrame records to a list of TrainTracking objects
             all_trains = [TrainTracking(**row) for row in df_clean.to_dict(orient="records")]
             db.add_all(all_trains)
             await db.commit()
-            print("✅ Data successfully uploaded to PostgreSQL!")
+            logger.info("✅ Data successfully uploaded to PostgreSQL!")
         except Exception as e:
-            print(f"❌ Database upload failed: {e}")
+            logger.error("❌ Database upload failed: %s", e)
+            await db.rollback()

@@ -12,7 +12,12 @@ class TrainTracking(Base):
     __tablename__ = "arrivals_tracking"
 
     id = Column(Integer, primary_key=True)
+
+    # The adjusted)run)date (after applying the next_date_arrival flag)
     run_date = Column(Date, nullable=False)
+
+    # The original run_date as provided by the API (before adjustment)
+    non_adjusted_date = Column(Date, nullable=False)
     service_id = Column(String(10), nullable=False)
     operator = Column(String(50), nullable=False)
     origin = Column(String(50), nullable=False)

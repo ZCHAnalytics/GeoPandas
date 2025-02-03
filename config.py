@@ -13,6 +13,6 @@ RTT_ENDPOINT = os.getenv("RTT_ENDPOINT")
 
 BASE_URL=f"https://{RTT_ENDPOINT}/json/search/"
 
-# Ensure credentuas are set
+# Ensure credentials are set
 if not RTT_USERNAME or not RTT_PASSWORD or not RTT_ENDPOINT:
-    raise ValueError("missing environment credentials")
+    raise ValueError("Missing environment credentials")
