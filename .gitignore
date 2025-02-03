@@ -10,7 +10,7 @@ __pycache__/
 *.log
 *.tmp
 
-
-alembic.ini
-version_with_alembic/
 sql_script.sql
+
+docs/db_setup.md
+docs/project_setup.md

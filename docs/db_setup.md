@@ -22,7 +22,7 @@ conda install psycopg2
 ```
 PostgreSQL Installation
 
-![alt text](images_db/image-3.png)
+![alt text](images/db/image-3.png)
 
 ## 🗄 2. Create the Database
 🔹 Step 1: Open pgAdmin or PostgreSQL Shell
@@ -43,7 +43,7 @@ Check if database exists
 \l
 ``` 
 Databse list:
-![alt text](images_db/image-1.png)
+![alt text](images/db/image-1.png)
 
 
 Create a dedicated user:
@@ -71,7 +71,7 @@ Exit the PostgreSQL shell:
 ## 🔧 3. Configure Database Connection
 Add database credentials to `.env` file 
 ```
-DATABASE_URL=postgresql+asyncpg://trains_user:password@localhost/trains_db
+DATABASE_URL=postgresql+asyncpg://trains_user:<password>@localhost/trains_db
 ```
 
 ## 📜 4. Define Database Schema using **SQLAlchemy** 
@@ -87,21 +87,14 @@ psql -U postgres -d trains_db
 
 Connected Database:
  
- ![alt text](images_db/image-4.png)
+ ![alt text](images/db/image-4.png)
 
 Check database table structure:
 ```sql
 \d train_tracking
 ```
+![DB Table Structure](images/db/table_structure.png)
 
-List all tables:
-```sql
-\dt
-```
-
-Database tables:
-
-![alt text](images_db/image-5.png)
 
 ## 🚀 6. Integrate Database with FastAPI
 
@@ -128,4 +121,14 @@ SessionLocal = sessionmaker(bind=engine, expire_on_commit=False, class_=AsyncSes
 async def get_db():
     async with SessionLocal() as session:
         yield session
+```
+
+## 7 Table is empty
+
+![alt text](images/db/empty_table.png)
+
+✅ Solution: Manually Call the API
+```bash
+curl -X POST "http://127.0.0.1:8000/api/update_delays/"
+
 ```
