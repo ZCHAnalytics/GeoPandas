@@ -1,4 +1,34 @@
 # 🚄 Geospatial Train Tracking & Delay Analysis
+
+**Credit:** This project was only possible thanks to Realtime Trains API!
+
+## 📌 Project Overview
+This project analyzes train delays at **Finsbury Park (FPK)**, capturing **all arriving trains**, regardless of their origin. The project uses **FastAPI, PostgreSQL, SQLAlchemy, Pandas, and AsyncSession** for efficient database operations. Future updates will include **geospatial mapping with Folium & GeoPandas**.
+
+## 📂 Project Structure
+```
+/train-tracking
+│── main.py                # 🔄 Runs the full data pipeline & API
+│── config.py              # 🛠️ Stores API credentials & configurations
+│
+├── data_pipeline/         # 🌐 Data processing scripts
+│   │── extract.py         # 📀 Extracts arrivals from RTT API (past 7 days)
+│   │── clean.py           # 🌱 Cleans & processes data (calculates delays, adjust dates)
+│   │── utils.py           # 🏢 Uploads processed data to PostgreSQL
+│
+├── db/                    # 📁 Database setup & schema
+│   │── db_main.py         # 🔧 Manages database connection
+│   │── db_schema.py       # 📚 Defines SQLAlchemy models
+│   │── db_init.py         # 🛠️ Initialises PostgreSQL tables
+│
+├── services/              # 🛠️ API interaction scripts
+│   │── trains_main.py     # 🚃 Fetches arrival data & structures JSON
+│
+├── sql/                   # 📈 SQL Optimization Scripts
+│   │── 01_create_partition.sql  # 📊 Partitioning tables by date
+│   │── 02_create_indexes.sql    # ⚖️ Indexing to speed up queries
+│   │── 03_slow_vs_fast_queries.sql  # 🔢 Performance benchmarking
+│   │── 04_results.md   # 📘 Performance improvement docs
 │
 ├── outputs/               # 📅 Data storage
 │   │── raw_data_FPK_YYYY-MM-DD.json  # 📝 Unfiltered API responses
