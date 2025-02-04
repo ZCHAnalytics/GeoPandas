@@ -11,50 +11,50 @@ This project analyzes train delays at **Finsbury Park (FPK)**, capturing **all a
 /train-tracking
 │── main.py                # 🔄 Runs the full data pipeline & API
 │── config.py              # 🛠️ Stores API credentials & configurations
-│── integrate_data.py # 🔄 Merges train arrival and station geospatial data 
-|
+│── integrate_data.py      # 🔄 Merges train arrival and station geospatial data 
+│
 ├── data_pipeline/         # 🌐 Data processing scripts
-│   │── extract.py         # 📀 Extracts arrivals from RTT API (past 7 days)
-│   │── clean.py           # 🌱 Cleans & processes data (calculates delays, adjust dates)
-│   │── utils.py           # 🏢 Uploads processed data to PostgreSQL
+│   ├── extract.py         # 📀 Extracts arrivals from RTT API (past 7 days)
+│   ├── clean.py           # 🌱 Cleans & processes data (calculates delays, adjusts dates)
+│   └── utils.py           # 🏢 Uploads processed data to PostgreSQL
 │
 ├── db/                    # 📁 Database setup & schema
-│   │── db_main.py         # 🔧 Manages database connection
-│   │── db_schema.py       # 📚 Defines SQLAlchemy models (includes origin/destination CRS)
-│   │── db_init.py         # 🛠️ Initialises PostgreSQL tables
+│   ├── db_main.py         # 🔧 Manages database connection
+│   ├── db_schema.py       # 📚 Defines SQLAlchemy models (includes origin/destination CRS)
+│   └── db_init.py         # 🛠️ Initialises PostgreSQL tables
 │
-├── geospatial/ # 🛠️ Geospatial mapping code
-│   |──get_spatial_data.py 
-│   |── mapping.py # Creates interactive maps using merged data 
-|
-├── data/ # 🛠️ Extracted geospatial data from doogal.co.uk 
-│   │── station_data.json # Raw station data in JSON format 
-│   │── station_coordinates.csv # Processed station coordinates 
+├── geospatial/            # 🛠️ Geospatial mapping code
+│   ├── get_spatial_data.py  # Downloads & processes station geospatial data
+│   └── mapping.py         # Creates interactive maps using merged data 
 │
-├── geodata/ # 🛠️ Generated train maps 
-│   │── train_delays_maps.html # Interactive map with delay info
-|
+├── data/                  # 🛠️ Extracted geospatial data from doogal.co.uk
+│   ├── station_data.json  # Raw station data in JSON format 
+│   └── station_coordinates.csv  # Processed station coordinates 
+│
+├── geodata/               # 🛠️ Generated train maps 
+│   └── train_delays_maps.html  # Interactive map with delay info
+│
 ├── services/              # 🛠️ API interaction scripts
-│   │── trains_main.py     # 🚃 Fetches arrival data & structures JSON
+│   └── trains_main.py     # 🚃 Fetches arrival data & structures JSON
 │
 ├── sql/                   # 📈 SQL Optimization Scripts
-│   │── 01_create_partition.sql  # 📊 Partitioning tables by date
-│   │── 02_create_indexes.sql    # ⚖️ Indexing to speed up queries
-│   │── 03_slow_vs_fast_queries.sql  # 🔢 Performance benchmarking
-│   │──
+│   ├── 01_create_partition.sql  # 📊 Partitioning tables by date
+│   ├── 02_create_indexes.sql    # ⚖️ Indexing to speed up queries
+│   ├── 03_slow_vs_fast_queries.sql  # 🔢 Performance benchmarking
+│   └── 04_results.md      # 📘 Performance improvement docs
 │
-├── outputs/                          # 📅 Data storage
-│   │── raw_data_FPK_YYYY-MM-DD.json  # 📝 Unfiltered API responses
-│   │── cleaned_data.csv              # 📈 Processed train data
-│   │── missing_actual_arrivals.csv   # ⚠️ Trains with missing actual arrival times
-|
-├── docs/               # 📖 Detailed documentation 
-│   │── 00_project_setup.md 
-│   │── 01_db_setup 
-│   │── 02_db_optimisation_results.md   # 📘 Performance improvement docs
-│   │── 03_geo_setup.md
-|   |── 04_merge_datasets.md
-|
+├── outputs/               # 📅 Data storage for RTT data
+│   ├── raw_data_FPK_YYYY-MM-DD.json  # 📝 Unfiltered API responses
+│   ├── cleaned_data.csv   # 📈 Processed train data
+│   └── missing_actual_arrivals.csv   # ⚠️ Records with missing actual arrival times
+│
+├── docs/                  # 📖 Detailed documentation
+│   ├── 00_project_setup.md  
+│   ├── 01_db_setup.md 
+│   ├── 02_db_optimisation_results.md   # 📘 Performance improvement docs
+│   ├── 03_geo_setup.md  
+│   └── 04_merge_datasets.md  
+│
 ├── environment.yml        # 🛠️ Conda environment setup
 │
 └── README.md              # 📗 Project documentation
@@ -107,7 +107,7 @@ uvicorn main:app --reload
 - **Indexing**: Speeds up searches on `run_date`, `destination`
 - **Result**: Queries run **120x faster**!
 
-for detials, see docs/02_db_optimise.md
+For further details on database optimisation, see DB Optimisation Documentation.
 for sql scripts, see `sql` folder
 
 
@@ -123,6 +123,7 @@ for sql scripts, see `sql` folder
 4. Update Mapping: Use the merged dataset for visualising train delays and station locations 🗺️
 5. In Progress: Visualising delay hotspots 🔥
 
+For a detailed guide on geospatial setup, refer to Geo Setup Documentation and Merge Datasets Guide.
 
 ## 📺 Next Steps
 - **Performance Dashboards**: Operator performance analysis
