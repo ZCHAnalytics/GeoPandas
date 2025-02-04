@@ -34,10 +34,25 @@ C:/Users/zulfi/miniconda3/Scripts/conda init bash
 ![Conda Init Bash](/docs/images/00_conda_init_bash.png)
 
 🔹 Create & Activate Environment
-```bash
-conda create --name trains_env python=3.9 
-conda activate trains_env
-```
+
+  ```bash
+  conda create --name trains_env python=3.9
+  conda env create -f environment.yml
+  conda activate trains_env
+  ```
+
+- Add RTT API credentials to `.env`:
+  ```bash
+  RTT_USERNAME=<your_guess>
+  RTT_PASSWORD=(another_guess>)
+  RTT_ENDPOINT=<your_endpoint>
+  ```
+- Initialise the database:
+  ```bash
+  python db/db_init.py
+  ```
+
+
 ✅ This ensures all dependencies are installed in an isolated environment.
 
 ## 📦 4️⃣ Install Dependencies

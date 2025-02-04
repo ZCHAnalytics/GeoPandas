@@ -1,12 +1,13 @@
-db_setup.md
-# Database Setup Guide 
 
-## DB Folder Overview:
-the `db/` folder contains the following files:
+#db_setup.md
+
+# DATABASE SETUP GUIDE 
+
+## 🗄️ DB Folder Overview
+The `db/` folder contains the following files:
 - **`db_main.py`**  - Handles database connection 
 - **`db_schema_alchemy.py`** - Defines SQLAlchemy models 
 - **`db_init.py`** - Used for initialising the database 
-- **`sql_script.sql`** - Raw commands for database setup 
 
 ## 📌 1. Install Dependencies
 
@@ -58,7 +59,7 @@ Grant all privileges to the new user:
 GRANT ALL PRIVILEGES ON DATABASE trains_db TO trains_user;
 ```
 
-Exepcted output: 
+Expected output: 
 ```
 GRANT
 ```
@@ -122,12 +123,12 @@ async def get_db():
         yield session
 ```
 
-## 7 Table is empty
+## 7. Verifying Table is Empty
+If table is empty:
 
 ![Empty Table](/docs/images/01_empty_table.png)
 
 ✅ Solution: Manually Call the API
 ```bash
 curl -X POST "http://127.0.0.1:8000/api/update_delays/"
-
 ```

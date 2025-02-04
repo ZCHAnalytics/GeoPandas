@@ -1,3 +1,4 @@
+# Merging Datasets Guide
 
 
 missing CRS column in cleaned_data.csv:
@@ -20,10 +21,10 @@ Lets check the realtime Train APi Documentation on how to retrieve CRS data:
 
 What This Script Does:
 Loads the Two Datasets:
-It reads the train arrival data and the station coordinates data into separate DataFrames.
+Reads the train arrival data and the station coordinates data into separate DataFrames.
 
 Merges the DataFrames:
-It uses a left merge on the crs column so that every record in your train arrival data is preserved, with matching station coordinates added.
+It uses a left merge on the crs column so that every record in train arrival data is preserved, with matching station coordinates added.
 
 Saves the Merged Data:
 The merged DataFrame is saved as a CSV file for later use.
@@ -40,7 +41,7 @@ Running the command gives this output:
 -  file outputs/merged_train_station_data.csv has been created and contains the merged data
 
 Here how it looks:
-![Merged_Dataset](/docs/images/04_merged_set.png)
+![Merged_Dataset](/docs/images/04_merged_dataset.png)
 
 ## Step 4: Update mapping Script to Use the Merged Data
 
@@ -54,7 +55,8 @@ Here how it looks:
 python geospatial/mapping.py
 ```
 
-Troubl;e shoot@
+#TODO
+Troubleshotting
 
 Wrong delay_mionutes calculated:
 ![Wrong delay_calculation](/docs/images/04_wrong_delay_calculation.png)

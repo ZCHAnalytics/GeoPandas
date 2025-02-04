@@ -41,7 +41,7 @@ This project analyzes train delays at **Finsbury Park (FPK)**, capturing **all a
 │   │── 01_create_partition.sql  # 📊 Partitioning tables by date
 │   │── 02_create_indexes.sql    # ⚖️ Indexing to speed up queries
 │   │── 03_slow_vs_fast_queries.sql  # 🔢 Performance benchmarking
-│   │── 04_results.md   # 📘 Performance improvement docs
+│   │──
 │
 ├── outputs/                          # 📅 Data storage
 │   │── raw_data_FPK_YYYY-MM-DD.json  # 📝 Unfiltered API responses
@@ -51,31 +51,22 @@ This project analyzes train delays at **Finsbury Park (FPK)**, capturing **all a
 ├── docs/               # 📖 Detailed documentation 
 │   │── 00_project_setup.md 
 │   │── 01_db_setup 
-│   │── 02_geo_setup.md
-|   |── 03_merge_datasets.md
-│
+│   │── 02_db_optimisation_results.md   # 📘 Performance improvement docs
+│   │── 03_geo_setup.md
+|   |── 04_merge_datasets.md
+|
 ├── environment.yml        # 🛠️ Conda environment setup
 │
 └── README.md              # 📗 Project documentation
 ```
 
 ## ⚙️ Setting Up the Environment
-- Install **Miniconda**, create an isolated environment:
-  ```bash
-  conda create --name trains_env python=3.9
-  conda env create -f environment.yml
-  conda activate trains_env
-  ```
-- Add RTT API credentials to `.env`:
-  ```bash
-  RTT_USERNAME=<your_guess>
-  RTT_PASSWORD=(another_guess>)
-  RTT_ENDPOINT=<your_endpoint>
-  ```
-- Initialise the database:
-  ```bash
-  python db/db_init.py
-  ```
+I chose:
+- conda virtual environment
+- storing variables in `.env` doc that is ignored by git
+
+For details, see /docs/00_project_setup.md
+For environemnt dependencies, see `environment.yml`
 
 ## 🚀 Running the Train API & Data Pipeline
 When the FastAPI server starts, it automatically **fetches and processes train arrival data for the past 7 days** (including adjusting dates for next-day arrivals) and uploads it to the database. If the database is empty, the server must be running to extract the initial data.
@@ -116,6 +107,10 @@ uvicorn main:app --reload
 - **Indexing**: Speeds up searches on `run_date`, `destination`
 - **Result**: Queries run **120x faster**!
 
+for detials, see docs/02_db_optimise.md
+for sql scripts, see `sql` folder
+
+
 ## 🗺️ Geospatial Mapping
 ### Inputs:
 - Train Arrival Data: outputs/cleaned_data.csv (includes station names) 🚆
@@ -127,6 +122,7 @@ uvicorn main:app --reload
 3. Update the Schema and Reinitialize the Database 🛠️
 4. Update Mapping: Use the merged dataset for visualising train delays and station locations 🗺️
 5. In Progress: Visualising delay hotspots 🔥
+
 
 ## 📺 Next Steps
 - **Performance Dashboards**: Operator performance analysis
