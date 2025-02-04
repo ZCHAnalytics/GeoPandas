@@ -11,7 +11,7 @@ git init
 git remote add origin <link to GitHub repository>
 ```
 
-![alt text](images/project_setup/image.png)
+![Git Init](/docs/images/01_git_init.png)
 
 ## 🏗 3️⃣ Set Up Conda Virtual Environment
 
@@ -19,19 +19,19 @@ git remote add origin <link to GitHub repository>
 Download & install Miniconda from:
 👉 Miniconda Installation Guide at: https://docs.anaconda.com/miniconda/install/
 
-![alt text](images/project_setup/image-1.png)
+![Conda Install](docs/images/01_conda_install.png)
 
 🔹 Verify Installation (Recommended)
 Check the hash matches the one at: https://repo.anaconda.com/miniconda/ 
 
-![alt text](images/project_setup/image-2.png)
+![Hash Check](docs/images/01_hash_check.png)
 
 🔹 Initialize Conda in Git Bash
 ```bash 
 C:/Users/zulfi/miniconda3/Scripts/conda init bash
 ```
 
-![alt text](images/project_setup/image-3.png)
+![Conda Init Bash](docs/images/01_conda_init_bash.png)
 
 🔹 Create & Activate Environment
 ```bash
@@ -70,7 +70,7 @@ uvicorn test_fastapi:app --reload
 ```
 ✅ If successful, the API should be running on http://127.0.0.1:8000/
 
-![alt text](images/project_setup/image-5.png)
+![output_api](docs/images/01_output_api_test_call.png)
 
 ## 🔄 7️⃣ Test Connection to Realtime Trains API
 🔹 Run the test script
@@ -81,4 +81,4 @@ python 01_api_call.py
 🔹 Expected Output
 ✅ Retrieves API response keys and first key’s data
 
-![API Response](images/project_setup/api_call.png)
+![API Call Keys](images/project_setup/01_api_call_keys.png)

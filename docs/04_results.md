@@ -12,7 +12,7 @@ SELECT * FROM train_tracking_master WHERE date = '2025-01-30';
 ```
 ⏳ Execution Time: 4.113 ms  
 
-![alt text](images_q/image-7.png)
+![Before Partition](docs/images/03_before_partition.png)
 
 
 2️⃣ After Partitioning (Faster Reads!)
@@ -23,7 +23,7 @@ SELECT * FROM train_tracking_master WHERE date = '2025-01-30';
 ```
 ⚡ Execution Time: 0.034 ms  
 
-![alt text](images_q/image-8.png)
+![After Partition](docs/images/03_after_partition.png)
 
 🚀 Performance Boost: ~99% Faster!
 
@@ -31,9 +31,9 @@ SELECT * FROM train_tracking_master WHERE date = '2025-01-30';
 🔍 Before Indexing:
 ⏳ Execution Time: 0.068 ms
 
-![alt text](images_q/image-10.png)
+![Before Indexing](docs/images/03_before_indexing.png)
 
 ✅ After Indexing:
 ⏳ Execution Time: 0.028 ms
 
-![alt text](images_q/image-11.png)
+![After Indexing](docs/images/03_after_indexing.png)
