@@ -46,7 +46,7 @@ def add_origin_markers(map_object, data):
         if pd.isnull(row['origin_latitude']) or pd.isnull(row['origin_longitude']):
             print(f"Skipping marker for {row['origin']} due to missing coordinators")
             continue
-        popup_info = f"Origin: {row['origin']} (CSR: {row['origin_csr']}"
+        popup_info = f"Origin: {row['origin']} (CRS: {row['origin_crs']}"
         if "delay_minutes" in row and pd.notnull(row['delay_minutes']):
             delay = row['delay_minutes']
             if delay < 0:
@@ -65,7 +65,7 @@ def add_destination_markers(map_object, data):
 
     """
     for _, row in data.iterrows():
-        popup_info = f"Destination: {row['destination']} (CSR: {row['destination_csr']}"
+        popup_info = f"Destination: {row['destination']} (CRS: {row['destination_crs']}"
         folium.Marker(
             location=[row['destination_latitude'], row['destination_longitude']],
             popup=popup_info,
@@ -103,7 +103,7 @@ def add_markers(map_object, data):
     for _, row in data.iterrows():
         folium.Marker(
             location=[row['latitude'], row['longitude']],
-            popup=f"{row['station_name']} (CSR: {row['csr']})"
+            popup=f"{row['station_name']} (CRS: {row['crs']})"
         ).add_to(map_object)
     return map_object
 

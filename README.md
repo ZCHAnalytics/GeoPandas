@@ -43,9 +43,9 @@ This project analyzes train delays at **Finsbury Park (FPK)**, capturing **all a
 │   │── 03_slow_vs_fast_queries.sql  # 🔢 Performance benchmarking
 │   │── 04_results.md   # 📘 Performance improvement docs
 │
-├── outputs/               # 📅 Data storage
+├── outputs/                          # 📅 Data storage
 │   │── raw_data_FPK_YYYY-MM-DD.json  # 📝 Unfiltered API responses
-│   │── cleaned_data.csv   # 📈 Processed train data
+│   │── cleaned_data.csv              # 📈 Processed train data
 │   │── missing_actual_arrivals.csv   # ⚠️ Trains with missing actual arrival times
 |
 ├── docs/               # 📖 Detailed documentation 
@@ -99,9 +99,9 @@ uvicorn main:app --reload
 | `service_id` | STRING | Unique train ID |
 | `operator` | STRING | Train company |
 | `origin` | STRING | Departure station |
-| `origin_csr` | STRING | Departure station code |
+| `origin_crs` | STRING | Departure station code |
 | `destination` | STRING | Arrival station |
-| `destination_csr` | STRING | Arrival station code |
+| `destination_crs` | STRING | Arrival station code |
 | `scheduled_arrival` | TIMESTAMP | Scheduled arrival time |
 | `actual_arrival` | TIMESTAMP | Actual arrival time (if available) |
 | `is_actual` | BOOLEAN | True if real arrival recorded |
@@ -116,18 +116,17 @@ uvicorn main:app --reload
 - **Indexing**: Speeds up searches on `run_date`, `destination`
 - **Result**: Queries run **120x faster**!
 
-### **Geospatial Mapping**
-Inputs:
-- Train Arrival Data: `outputs/cleaned_data.csv` (includes station names) 
-- Station Geospatial Data: `data/stations_coordinates.csv` (contains both station names and their codes as well as their latitutude and longitude) 
-Steps:
+## 🗺️ Geospatial Mapping
+### Inputs:
+- Train Arrival Data: outputs/cleaned_data.csv (includes station names) 🚆
+- Station Geospatial Data: data/station_coordinates.csv (contains station names, their codes, latitude, and longitude) 📍
 
-1. Verify data structure 
-2. Merge the Datasets with separate script `integrate_data.py`
-3. Updated the schema and reinitiliase the database 
-4. Update Mapping to use the merged dataset fro visualising train delays and station locations  
-
-In Progress:  Visualising delay hotspots 
+### Steps:
+1. Verify Data Structure 🔍
+2. Merge the Datasets: Use the separate script integrate_data.py 🔄
+3. Update the Schema and Reinitialize the Database 🛠️
+4. Update Mapping: Use the merged dataset for visualising train delays and station locations 🗺️
+5. In Progress: Visualising delay hotspots 🔥
 
 ## 📺 Next Steps
 - **Performance Dashboards**: Operator performance analysis

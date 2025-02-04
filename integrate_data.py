@@ -19,13 +19,13 @@ print(df_coords.head())
 df_train_origin = pd.merge(df_train, df_coords, left_on="origin", right_on="station_name", how="left", suffixes=("", "_origin"))
 
 # Rename CRS and coordinates columns for origin stations
-df_train_origin.rename(columns={"crs": "origin_csr", "latitude": "origin_latitude", "longitude": "origin_longitude"}, inplace=True)
+df_train_origin.rename(columns={"crs": "origin_crs", "latitude": "origin_latitude", "longitude": "origin_longitude"}, inplace=True)
 
 # Merge the new dataset with destination stations data 
 df_train_merged = pd.merge(df_train_origin, df_coords, left_on="destination", right_on="station_name", how="left", suffixes=("", "_dest"))
 
 # Rename CRS and coordinates columns for destination
-df_train_merged.rename(columns={"crs": "destination_csr", "latitude": "destination_latitude", "longitude": "destination_longitude"}, inplace=True)
+df_train_merged.rename(columns={"crs": "destination_crs", "latitude": "destination_latitude", "longitude": "destination_longitude"}, inplace=True)
 
 # Drop duplicate station_name columns that came from the merge
 df_train_merged.drop(columns=["station_name", "station_name_dest"], inplace=True)
