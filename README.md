@@ -1,16 +1,18 @@
 # 🚄 Geospatial Train Tracking & Delay Analysis
+![Project Visual](folium_popup_map.png)
 
 **Credit:** This project was only possible thanks to Realtime Trains API!
 
 ## 📌 Project Overview
-This project analyzes train delays at **Finsbury Park (FPK)**, capturing **all arriving trains**, regardless of their origin. The project uses **FastAPI, PostgreSQL, SQLAlchemy, Pandas, and AsyncSession** for efficient database operations. Future updates will include **geospatial mapping with Folium & GeoPandas**.
+This project analyzes train delays at **Finsbury Park (FPK)**, capturing **all arriving trains**, regardless of their origin. The project uses **FastAPI, PostgreSQL, SQLAlchemy, Pandas, and AsyncSession** for efficient database operations. Additionally, it includes **geospatial mapping with Folium & GeoPandas**.
 
 ## 📂 Project Structure
 ```
 /train-tracking
 │── main.py                # 🔄 Runs the full data pipeline & API
 │── config.py              # 🛠️ Stores API credentials & configurations
-│
+│── integrate_data.py # 🔄 Merges train arrival and station geospatial data 
+|
 ├── data_pipeline/         # 🌐 Data processing scripts
 │   │── extract.py         # 📀 Extracts arrivals from RTT API (past 7 days)
 │   │── clean.py           # 🌱 Cleans & processes data (calculates delays, adjust dates)
@@ -18,19 +20,19 @@ This project analyzes train delays at **Finsbury Park (FPK)**, capturing **all a
 │
 ├── db/                    # 📁 Database setup & schema
 │   │── db_main.py         # 🔧 Manages database connection
-│   │── db_schema.py       # 📚 Defines SQLAlchemy models
+│   │── db_schema.py       # 📚 Defines SQLAlchemy models (includes origin/destination CRS)
 │   │── db_init.py         # 🛠️ Initialises PostgreSQL tables
 │
-├── geospatial/            # 🛠️ v4 - new folder for geospatial mapping  
-│   │── mapping.py         #    v4 New file for map creations
+├── geospatial/ # 🛠️ Geospatial mapping code
+│   |──get_spatial_data.py 
+│   |── mapping.py # Creates interactive maps using merged data 
 |
-├── data/            # 🛠️ v4 - new folder for extacted geospatial data 
-│   │── station_data.json #    v4
-|   |── station_coord.csv  #   v4 
-|
-├── html_map/            # 🛠️ v4 - new folder for train maps 
-│   │── train_delays_map    # v 4 In progress 
-|   
+├── data/ # 🛠️ Extracted geospatial data from doogal.co.uk 
+│   │── station_data.json # Raw station data in JSON format 
+│   │── station_coordinates.csv # Processed station coordinates 
+│
+├── geodata/ # 🛠️ Generated train maps 
+│   │── train_delays_maps.html # Interactive map with delay info
 |
 ├── services/              # 🛠️ API interaction scripts
 │   │── trains_main.py     # 🚃 Fetches arrival data & structures JSON
@@ -45,6 +47,12 @@ This project analyzes train delays at **Finsbury Park (FPK)**, capturing **all a
 │   │── raw_data_FPK_YYYY-MM-DD.json  # 📝 Unfiltered API responses
 │   │── cleaned_data.csv   # 📈 Processed train data
 │   │── missing_actual_arrivals.csv   # ⚠️ Trains with missing actual arrival times
+|
+├── docs/               # 📖 Detailed documentation 
+│   │── 00_project_setup.md 
+│   │── 01_db_setup 
+│   │── 02_geo_setup.md
+|   |── 03_merge_datasets.md
 │
 ├── environment.yml        # 🛠️ Conda environment setup
 │
@@ -82,7 +90,7 @@ uvicorn main:app --reload
 | `/api/station/FPK/date/2025-02-01` | Get arrivals at FPK for a specific date |
 | `/` | Check if API is running |
 
-## 📚 PostgreSQL Database Setup
+## 📚 PostgreSQL Database Setup - revised on 4 February 
 ### 🔄 Data Model
 | Column | Type | Description |
 |--|--|--|
@@ -91,7 +99,9 @@ uvicorn main:app --reload
 | `service_id` | STRING | Unique train ID |
 | `operator` | STRING | Train company |
 | `origin` | STRING | Departure station |
+| `origin_csr` | STRING | Departure station code |
 | `destination` | STRING | Arrival station |
+| `destination_csr` | STRING | Arrival station code |
 | `scheduled_arrival` | TIMESTAMP | Scheduled arrival time |
 | `actual_arrival` | TIMESTAMP | Actual arrival time (if available) |
 | `is_actual` | BOOLEAN | True if real arrival recorded |
@@ -106,25 +116,18 @@ uvicorn main:app --reload
 - **Indexing**: Speeds up searches on `run_date`, `destination`
 - **Result**: Queries run **120x faster**!
 
-
 ### **Geospatial Mapping**
 Inputs:
-- train arrival data: cleaned_data.csv that includes a column for the train station code - CRS
-- station geospatial data: stations_coordinates.csv that has the following columns: csr, statio_name, latitutude, longitude 
+- Train Arrival Data: `outputs/cleaned_data.csv` (includes station names) 
+- Station Geospatial Data: `data/stations_coordinates.csv` (contains both station names and their codes as well as their latitutude and longitude) 
+Steps:
 
-step 1: verify data structure 
-step 2: write a script to merge the datasets
-```bash
-touch integrate_data.py
-```
+1. Verify data structure 
+2. Merge the Datasets with separate script `integrate_data.py`
+3. Updated the schema and reinitiliase the database 
+4. Update Mapping to use the merged dataset fro visualising train delays and station locations  
 
-step 3: run and verify the merge
-step 3.2. Update scheme and reinitiliase the database 
-step 4: update mapping.py to use the merged data 
-
-
-
-- Visualising delay hotspots with Folium & GeoPandas
+In Progress:  Visualising delay hotspots 
 
 ## 📺 Next Steps
 - **Performance Dashboards**: Operator performance analysis
@@ -137,12 +140,14 @@ Realtime Trains API data is for **non-commercial use only** and requires attribu
 ---
 
 ### Notes on the Updates:
-Update 3 February 2024@ 
-- **Project Structure:**  
-  The structure now includes updated names and descriptions reflecting the new database fields and the adjusted ETL process.
-  
-- **Database Schema:**  
-  The Data Model section now includes `non_adjusted_date` (storing the original API date) alongside `run_date` (the adjusted date).
+Update 4 February 2025
+- Added folders for merged datasets.
+- Updated databse scheme to include `origin_crs` and `destination_crs`.
+- Corrected delay calculation logic in the ETL process to handle next-day arrivals properly. 
 
-- **ETL Process:**  
-  The "Running the Train API & Data Pipeline" section notes that the project automatically processes data (including date adjustments for next-day arrivals).
+Update 3 February 2025
+- Revised project structureto include updated names and descriptions.
+- Enhanced ETL process to automatically adjust dates for next-day arrivals. 
+
+
+The "Running the Train API & Data Pipeline" section notes that the project automatically processes data (including date adjustments for next-day arrivals).
