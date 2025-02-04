@@ -63,10 +63,11 @@ This project analyzes train delays at **Finsbury Park (FPK)**, capturing **all a
 ## ⚙️ Setting Up the Environment
 I chose:
 - conda virtual environment
-- storing variables in `.env` doc that is ignored by git
+- storing variables in `.env` doc 
 
-For details, see /docs/00_project_setup.md
-For environemnt dependencies, see `environment.yml`
+For details, see [Project Setup](/docs/00_project_setup.md)
+
+For environemnt dependencies, see [Environment Dependecies](environment.yml)
 
 ## 🚀 Running the Train API & Data Pipeline
 When the FastAPI server starts, it automatically **fetches and processes train arrival data for the past 7 days** (including adjusting dates for next-day arrivals) and uploads it to the database. If the database is empty, the server must be running to extract the initial data.
@@ -107,8 +108,8 @@ uvicorn main:app --reload
 - **Indexing**: Speeds up searches on `run_date`, `destination`
 - **Result**: Queries run **120x faster**!
 
-For further details on database optimisation, see DB Optimisation Documentation.
-for sql scripts, see `sql` folder
+For further details on database optimisation, see [DB Optimisation Documentation](/docs/02_db_optimise.md).
+for sql scripts, see [SQL Queries](/sql_old_table).
 
 
 ## 🗺️ Geospatial Mapping
@@ -123,7 +124,7 @@ for sql scripts, see `sql` folder
 4. Update Mapping: Use the merged dataset for visualising train delays and station locations 🗺️
 5. In Progress: Visualising delay hotspots 🔥
 
-For a detailed guide on geospatial setup, refer to Geo Setup Documentation and Merge Datasets Guide.
+For a detailed guide on geospatial setup, refer to [Geo Setup Documentation](/docs/03_geo_setup.md) and [Merge Datasets Guide](/docs/04_merge_datasets.md).
 
 ## 📺 Next Steps
 - **Performance Dashboards**: Operator performance analysis
