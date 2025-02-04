@@ -21,7 +21,7 @@ conda install psycopg2
 ```
 PostgreSQL Installation
 
-![PostgreSQL Install](/docs/images/02_postgresql_install.png)
+![PostgreSQL Install](/docs/images/01_postgresql_install.png)
 
 ## 🗄 2. Create the Database
 🔹 Step 1: Open pgAdmin or PostgreSQL Shell
@@ -43,7 +43,7 @@ Check if database exists
 ``` 
 Database list:
 
-![List DB](/docs/images/02_db_list.png)
+![List DB](/docs/images/01_db_list.png)
 
 Create a dedicated user:
 ```sql
@@ -86,13 +86,13 @@ psql -U postgres -d trains_db
 
 Connected Database:
  
-![Connected DB](/docs/images/02_db_connect.png)
+![Connected DB](/docs/images/01_db_connect.png)
 
 Check database table structure:
 ```sql
 \d train_tracking
 ```
-![DB Table Structure](/docs/images/02_table_structure.png)
+![DB Table Structure](/docs/images/01_table_structure.png)
 
 
 ## 🚀 6. Integrate Database with FastAPI
@@ -124,7 +124,7 @@ async def get_db():
 
 ## 7 Table is empty
 
-![Empty Table](/docs/images/02_empty_table.png)
+![Empty Table](/docs/images/01_empty_table.png)
 
 ✅ Solution: Manually Call the API
 ```bash
