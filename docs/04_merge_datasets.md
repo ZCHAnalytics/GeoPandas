@@ -2,12 +2,12 @@
 
 missing CRS column in cleaned_data.csv:
 
-![Missing CRS Column](missing_crs_column.png)
+![Missing CRS Column](/docs/images/04_missing_crs_column.png)
 
 
 Lets check the realtime Train APi Documentation on how to retrieve CRS data:
 
-![RTT Api Key](rtt_api_key.png)
+![RTT Api Key](/docs/images/04_rtt_api_key.png)
  - it does not offer station codes for origin or destination stations 
 
 
@@ -34,20 +34,20 @@ python integrate_data.py
 ```
 
 Running the command gives this output:
-![Terminal Output Merge](merge_output.png)
+![Terminal Output Merge](/docs/images/04_merge_output.png)
 
 - columns from both the train arrival data and the station coordinates
 -  file outputs/merged_train_station_data.csv has been created and contains the merged data
 
 Here how it looks:
-![Merged_Dataset](merged_set.png)
+![Merged_Dataset](/docs/images/04_merged_set.png)
 
 ## Step 4: Update mapping Script to Use the Merged Data
 
 - create new folder for geodata at the root 
 
 
-![Output for new mapping](output_remapping.png)
+![Output for new mapping](/docs/images/04_output_remapping.png)
 
 ## Step 5: Test mapping.py 
 ```bash
@@ -57,10 +57,10 @@ python geospatial/mapping.py
 Troubl;e shoot@
 
 Wrong delay_mionutes calculated:
-![Wrong delay_calculation](wrong_delay_calculation.png)
+![Wrong delay_calculation](/docs/images/04_wrong_delay_calculation.png)
 
 
 Mistake in clean.py file:
 
 Fixed now! 
-![Fixed Marker with Correct Delay Calculaiton](fixed_delay_marker.png)
+![Fixed Marker with Correct Delay Calculaiton](/docs/images/04_fixed_delay_marker.png)

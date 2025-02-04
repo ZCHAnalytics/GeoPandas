@@ -19,4 +19,4 @@ Add to environment.yml file
 ## 4. 
 
 
-![alt text](image.png)
+![Empty Popup](/docs/images/03_empty_popup.png)

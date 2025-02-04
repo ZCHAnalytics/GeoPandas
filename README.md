@@ -1,5 +1,5 @@
 # 🚄 Geospatial Train Tracking & Delay Analysis
-![Project Visual](folium_popup_map.png)
+![Project Visual](/docs/images/folium_popup_map.png)
 
 **Credit:** This project was only possible thanks to Realtime Trains API!
 
