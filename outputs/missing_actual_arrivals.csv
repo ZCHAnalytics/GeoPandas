@@ -1,4 +1,7 @@
 run_date,service_id,operator,is_passenger_train,scheduled_arrival,actual_arrival,is_actual,next_day_arrival,origin,destination,was_scheduled_to_stop,stop_status,delay_minutes
+2025-02-03,X46120,Great Northern,True,0048,,False,False,Gordon Hill,London Kings Cross,True,CALL,
+2025-02-03,X46115,Great Northern,True,0124,,False,False,Hertford North,London Kings Cross,True,CALL,
+2025-02-04,X46114,Great Northern,True,0154,,False,False,Hertford North,London Kings Cross,True,CALL,
 2025-02-02,X97669,Great Northern,True,0009,,False,False,London Kings Cross,Welwyn Garden City,True,CALL,
 2025-02-02,X97019,Great Northern,True,0011,,False,False,Welwyn Garden City,Finsbury Park,True,DESTINATION,
 2025-02-02,X19946,Great Northern,True,0020,,False,False,Hertford North,Finsbury Park,True,DESTINATION,
@@ -17,7 +20,6 @@ run_date,service_id,operator,is_passenger_train,scheduled_arrival,actual_arrival
 2025-02-03,X19922,Thameslink,True,0222,,False,False,Stevenage,Finsbury Park,True,DESTINATION,
 2025-02-03,X19908,Thameslink,True,0227,,False,False,Welwyn Garden City,London Kings Cross,True,CALL,
 2025-02-03,X19918,Great Northern,True,0308,,False,False,Welwyn Garden City,Finsbury Park,True,DESTINATION,
-2025-02-03,W25431,Thameslink,True,2237,,False,False,Peterborough,Horsham,True,CALL,
 2025-02-01,X97816,Great Northern,True,0001,,False,False,Welwyn Garden City,Finsbury Park,True,DESTINATION,
 2025-02-01,X97855,Great Northern,True,0016,,False,False,Welwyn Garden City,Finsbury Park,True,DESTINATION,
 2025-02-01,X19972,Great Northern,True,0020,,False,False,Hertford North,Finsbury Park,True,DESTINATION,
@@ -211,4 +213,3 @@ run_date,service_id,operator,is_passenger_train,scheduled_arrival,actual_arrival
 2025-01-31,X95631,Great Northern,True,0212,,False,False,Welwyn Garden City,London Kings Cross,True,CALL,
 2025-01-30,X95631,Great Northern,True,0212,,False,False,Welwyn Garden City,London Kings Cross,True,CALL,
 2025-01-29,X95631,Great Northern,True,0212,,False,False,Welwyn Garden City,London Kings Cross,True,CALL,
-2025-01-28,X95631,Great Northern,True,0212,,False,False,Welwyn Garden City,London Kings Cross,True,CALL,

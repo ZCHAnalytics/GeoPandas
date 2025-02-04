@@ -108,6 +108,21 @@ uvicorn main:app --reload
 
 
 ### **Geospatial Mapping**
+Inputs:
+- train arrival data: cleaned_data.csv that includes a column for the train station code - CRS
+- station geospatial data: stations_coordinates.csv that has the following columns: csr, statio_name, latitutude, longitude 
+
+step 1: verify data structure 
+step 2: write a script to merge the datasets
+```bash
+touch integrate_data.py
+```
+
+step 3: run and verify the merge
+step 3.2. Update scheme and reinitiliase the database 
+step 4: update mapping.py to use the merged data 
+
+
 
 - Visualising delay hotspots with Folium & GeoPandas
 
@@ -122,6 +137,7 @@ Realtime Trains API data is for **non-commercial use only** and requires attribu
 ---
 
 ### Notes on the Updates:
+Update 3 February 2024@ 
 - **Project Structure:**  
   The structure now includes updated names and descriptions reflecting the new database fields and the adjusted ETL process.
   

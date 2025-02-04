@@ -97,11 +97,18 @@ def process_data(raw_data):
         # while it was scheduled before midnight (scheduled time > 20:00), then add one day 
         adjusted_date = original_date 
         if next_day_arrival or (actual_time.hour < 5 and scheduled_time.hour > 20):
+            # For services that cross midnight: scheduled time remain on original date,
+            # while actual time is on the next day.
+            scheduled_dt = datetime.combine(original_date, scheduled_time)
+            actual_dt = datetime.combine(original_date + timedelta(days=1), actual_time)
             adjusted_date = original_date + timedelta(days=1)
-            logger.info("Adjusting date for service %s: original %s -> adjusted %s", service_id, original_date, adjusted_date)
-
+        else:
+            scheduled_dt = datetime.combine(original_date, scheduled_time)
+            actual_dt = datetime.combine(original_date, scheduled_time)
+            adjusted_date = original_date
+            
         # ✅ Calculate delay in minutes
-        delay_delta = datetime.combine(adjusted_date, actual_time) - datetime.combine(adjusted_date, scheduled_time)
+        delay_delta = actual_dt - scheduled_dt
         delay_minutes = int(delay_delta.total_seconds() // 60)
 
         # ✅ Append cleaned data with both non_adjusted_date and adjusted run_date

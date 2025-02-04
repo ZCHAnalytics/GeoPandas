@@ -13,15 +13,25 @@ class TrainTracking(Base):
 
     id = Column(Integer, primary_key=True)
 
+    # Date fields
     # The adjusted)run)date (after applying the next_date_arrival flag)
     run_date = Column(Date, nullable=False)
 
     # The original run_date as provided by the API (before adjustment)
     non_adjusted_date = Column(Date, nullable=False)
+
+    # Train identification
     service_id = Column(String(10), nullable=False)
     operator = Column(String(50), nullable=False)
+
+    # New fields to add crs for origin and destination stations
     origin = Column(String(50), nullable=False)
+    origin_crs = Column(String(6), nullable=True)
+
     destination = Column(String(50), nullable=False)
+    destination_crs = Column(String(6), nullable=True)
+    
+
     scheduled_arrival = Column(Time, nullable=False)
     actual_arrival = Column(Time, nullable=True)
     is_actual = Column(Boolean, nullable=True)  
