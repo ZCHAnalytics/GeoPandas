@@ -119,12 +119,23 @@ for sql scripts, see [SQL Queries](/sql_old_table).
 
 ### Steps:
 1. Verify Data Structure 🔍
-2. Merge the Datasets: Use the separate script integrate_data.py 🔄
+2. Merge the Datasets: Use the separate script `integrate_data.py` 🔄 
+3. Validate data: checking and fixing missing values: Use the script `values_check.py` to detect any missing values. 
+3. 
 3. Update the Schema and Reinitialize the Database 🛠️
 4. Update Mapping: Use the merged dataset for visualising train delays and station locations 🗺️
 5. In Progress: Visualising delay hotspots 🔥
 
-For a detailed guide on geospatial setup, refer to [Geo Setup Documentation](/docs/03_geo_setup.md) and [Merge Datasets Guide](/docs/04_merge_datasets.md).
+Troubleshooting:
+We have 292 missing values for origin stations and 281 for destination stations:
+
+![Missing Values](/docs/images/03_missing_values.png)
+
+The affected stations were London Kings Cross (over 200 records), Letchworth (over 40), and one mismatched record for `Peterboro Maint Shed Gbrf`.
+
+After fixing this, the map has not more empty popup markers fro Kings Cross or Letchworth! 
+
+For a detailed guide on geospatial setup, refer to [Geospatial Data Setup Guide](/docs/03_geo_setup.md) and [Adding Delays Data Guide](/docs/04_merge_delays.md).
 
 ## 📺 Next Steps
 - **Performance Dashboards**: Operator performance analysis
@@ -137,6 +148,11 @@ Realtime Trains API data is for **non-commercial use only** and requires attribu
 ---
 
 ### Notes on the Updates:
+Update 5 February 2025
+- Added scripts for data validation and cleaning of mismatched station names between two datasets 
+- Correctly matched station names in RTT and Doogal data merge 
+- Dropped unnecessary values such as for  Peterboro Maintenance Shed
+
 Update 4 February 2025
 - Added folders for merged datasets.
 - Updated databse scheme to include `origin_crs` and `destination_crs`.

@@ -7,10 +7,11 @@ import pandas as pd
 
 # Define paths for storing data
 DATA_DIR = "data"
-STATION_JSON_PATH = os.path.join(DATA_DIR, "station_data.json")
-STATION_CSV_PATH = os.path.join(DATA_DIR, "station_coord.csv")
+STATION_JSON_PATH = os.path.join(DATA_DIR, "station_data.json") # Retrieved data 
+STATION_CSV_PATH = os.path.join(DATA_DIR, "station_coordinates.csv") # Processed data 
 os.makedirs(DATA_DIR, exist_ok=True)
 
+# Function for retrieving data from public sources
 def download_station_data():
     url = "https://www.doogal.co.uk/UkStationsKML/?output=json"
     response = requests.get(url)
@@ -23,7 +24,8 @@ def download_station_data():
     else:
         print("Failed to download data. Status code:", response.status_code)
         return None
-
+    
+# Function for processing data and storing results in CSV file 
 def process_station_data(station_data):
     features = station_data.get("features", [])
     records = []
@@ -44,6 +46,7 @@ def process_station_data(station_data):
     print(f"CSV saved to: {STATION_CSV_PATH} with {len(df_stations)} rows.")
     return df_stations
 
+# Function to call first two functions in the correct order and skipping download fuction if CSV already exists
 def get_station_data():
     # Check current working directory (for debugging)
     print("Current working directory:", os.getcwd())
@@ -51,7 +54,7 @@ def get_station_data():
     if os.path.exists(STATION_CSV_PATH):
         if os.path.getsize(STATION_CSV_PATH) == 0:
             print("Existing CSV is empty. Forcing re-download.")
-            station_data = download_station_data()
+            station_data = download_station_data() # Fetch JSON from doogal
             if station_data:
                 df = process_station_data(station_data)
             else:
@@ -62,10 +65,10 @@ def get_station_data():
     else:
         station_data = download_station_data()
         if station_data:
-            df = process_station_data(station_data)
+            df = process_station_data(station_data) # Extract station names, CRS codes, latitudes and longitudes 
         else:
             df = pd.DataFrame()
-    return df
+    return df # New or Existing DataFrame
 
 if __name__ == "__main__":
     df = get_station_data()

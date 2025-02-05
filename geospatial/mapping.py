@@ -4,10 +4,10 @@ import geopandas as gpd
 from shapely.geometry import Point
 import pandas as pd
 import os 
-from get_spatial_data import get_station_data
+# from get_coordinates import get_station_data
 
 # Ensure the geodata folder exists at the project root.
-output_dir = "geodata"
+output_dir = "maps"
 os.makedirs(output_dir, exist_ok=True)
 
 # Define the path for the map file.

@@ -27,7 +27,7 @@ df_train_merged = pd.merge(df_train_origin, df_coords, left_on="destination", ri
 # Rename CRS and coordinates columns for destination
 df_train_merged.rename(columns={"crs": "destination_crs", "latitude": "destination_latitude", "longitude": "destination_longitude"}, inplace=True)
 
-# Drop duplicate station_name columns that came from the merge
+# Drop redundant duplicate station_name columns that came from the merge
 df_train_merged.drop(columns=["station_name", "station_name_dest"], inplace=True)
 
 # Step 2.5 Save the merged DataFrame to a new CSV file

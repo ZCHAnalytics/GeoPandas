@@ -1,4 +1,8 @@
 run_date,service_id,operator,is_passenger_train,scheduled_arrival,actual_arrival,is_actual,next_day_arrival,origin,destination,was_scheduled_to_stop,stop_status,delay_minutes
+2025-02-04,X46120,Great Northern,True,0048,,False,False,Gordon Hill,London Kings Cross,True,CALL,
+2025-02-04,X46115,Great Northern,True,0124,,False,False,Hertford North,London Kings Cross,True,CALL,
+2025-02-05,X46114,Great Northern,True,0154,,False,False,Hertford North,London Kings Cross,True,CALL,
+2025-02-05,W25431,Thameslink,True,2237,,False,False,Peterborough,Horsham,True,CALL,
 2025-02-03,X46120,Great Northern,True,0048,,False,False,Gordon Hill,London Kings Cross,True,CALL,
 2025-02-03,X46115,Great Northern,True,0124,,False,False,Hertford North,London Kings Cross,True,CALL,
 2025-02-04,X46114,Great Northern,True,0154,,False,False,Hertford North,London Kings Cross,True,CALL,
@@ -212,4 +216,3 @@ run_date,service_id,operator,is_passenger_train,scheduled_arrival,actual_arrival
 2025-02-01,X97897,Great Northern,True,2350,,False,False,Hertford North,Finsbury Park,True,DESTINATION,
 2025-01-31,X95631,Great Northern,True,0212,,False,False,Welwyn Garden City,London Kings Cross,True,CALL,
 2025-01-30,X95631,Great Northern,True,0212,,False,False,Welwyn Garden City,London Kings Cross,True,CALL,
-2025-01-29,X95631,Great Northern,True,0212,,False,False,Welwyn Garden City,London Kings Cross,True,CALL,

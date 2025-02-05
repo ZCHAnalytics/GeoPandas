@@ -1,0 +1,2 @@
+non_adjusted_date,run_date,service_id,operator,is_passenger_train,scheduled_arrival,actual_arrival,is_actual,next_day_arrival,origin,destination,was_scheduled_to_stop,stop_status,delay_minutes,origin_crs,origin_longitude,origin_latitude,destination_crs,destination_longitude,destination_latitude
+2025-02-05,2025-02-05,R54433,Unknown,False,11:55,11:54,True,False,Finsbury Park,Peterboro Maint Shed Gbrf,True,STARTS,0,FPK,-0.106284978884699,51.5643002449157,,,
