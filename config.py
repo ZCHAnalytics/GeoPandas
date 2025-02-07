@@ -1,11 +1,8 @@
 # config.py file
-
 import os
 from dotenv import load_dotenv
-
 # Load environment variables from .env file
 load_dotenv()
-
 # Retrieve environment variables 
 RTT_USERNAME = os.getenv("RTT_USERNAME")
 RTT_PASSWORD = os.getenv("RTT_PASSWORD")

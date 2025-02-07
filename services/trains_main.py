@@ -8,13 +8,12 @@ import logging
 # ✅ Add project root directory to Python path
 # TODO: Remove the following sys.path modification once the project is properly packaged
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-
+print("importing url, rtt username and password for trains_main.py")
 from config import BASE_URL, RTT_USERNAME, RTT_PASSWORD        
 
 # Set up logging v3
 logger = logging.getLogger(__name__)
 logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
-
 
 def get_train_arrivals(station: str, date: str):
     """
@@ -35,7 +34,7 @@ def get_train_arrivals(station: str, date: str):
     
     # ✅ Build the request URL
     request_url = f"{BASE_URL}/{station}/{year}/{month}/{day}/arrivals"
-    logger.info("Requesting train arrivals with URL: %s", request_url)
+    #logger.info("Requesting train arrivals with URL: %s", request_url)
     try:
         response = requests.get(request_url, auth=(RTT_USERNAME, RTT_PASSWORD))
         response.raise_for_status()
@@ -49,11 +48,10 @@ def get_train_arrivals(station: str, date: str):
         logger.error("Invalid JSON response: %s", e)
         return {"error": "Invalid JSON response from Realtime Trains API."}
 
-
     # ✅ Debugging: Print total number of services and top-level keys of API response
     services = response_json.get("services", [])
-    logger.info("Total Services from API: %d", len(services))
-    logger.info("🚆 API Response Keys:", list(response_json.keys()))
+    #logger.info("Total Services from API: %d", len(services))
+    #logger.info("🚆 API Response Keys:, %s", list(response_json.keys()))
 
     # ✅ Ensure 'services' exist in the response
     if "services" not in response_json:
@@ -77,7 +75,6 @@ def get_train_arrivals(station: str, date: str):
                 "scheduled_arrival": loc.get("gbttBookedArrival"),
                 "actual_arrival": loc.get("realtimeArrival"),
                 "is_actual": loc.get("realtimeArrivalActual", False),
-                "next_day_arrival": loc.get("realtimeArrivalNextDay", False),
 
                 # Extract origin & destination station names
                 "origin": loc.get("origin", [{}])[0].get("description", "UNKNOWN") if loc.get("origin") else "UNKNOWN",

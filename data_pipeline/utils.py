@@ -13,18 +13,16 @@ from db.db_schema_alchemy import TrainTracking
 logger = logging.getLogger(__name__)
 
                                                
-async def upload_to_db(df_clean: pd.DataFrame):  
+async def upload_to_db(df_merged: pd.DataFrame):  
     """
     Upload cleaned train data from a DataFrame to PostgreSQL.
     
     Args:
         df_clean (pd.DataFrame): Cleaned train data.
     """
-    if df_clean.empty:
+    if df_merged.empty:
         logger.error("❌ No data to upload. DataFrame is empty.")
         return
-    # Create a new column for original , non-adjusted run_date
-    df_clean["non_adjusted_date"] = pd.to_datetime(df_clean["run_date"]).dt.date
   
     # ✅  Adjust arrivals past mignight
     def adjust_date(row):
@@ -37,22 +35,19 @@ async def upload_to_db(df_clean: pd.DataFrame):
         if row.get("next_day_arrival", True):
             return base_date + timedelta(days=1)
         return base_date
-    
-    # Create a new column with the adjusted run_date
-    logger.info("Converting adjusted_run_date string to datetime.date type")
-    df_clean["run_date"] = df_clean.apply(adjust_date, axis=1).dt.date
+
         
     # ✅ Convert 'scheduled_arrival' and 'actual_arrival' to proper TIMESTAMP format
     
     logger.info("Converting 'scheduled_arrival' and 'actual_arrival' to TIMESTAMP format.")
 
-    df_clean["scheduled_arrival"] = pd.to_datetime(df_clean["run_date"].astype(str) + " " + df_clean["scheduled_arrival"])
-    df_clean["actual_arrival"] = pd.to_datetime(df_clean["run_date"].astype(str) + " " + df_clean["actual_arrival"])
+    df_merged["scheduled_arrival"] = pd.to_datetime(df_merged["run_date"].astype(str) + " " + df_merged["scheduled_arrival"])
+    df_merged["actual_arrival"] = pd.to_datetime(df_merged["run_date"].astype(str) + " " + df_merged["actual_arrival"])
 
     async with AsyncSession(engine) as db:
         try:
             # Convert DataFrame records to a list of TrainTracking objects
-            all_trains = [TrainTracking(**row) for row in df_clean.to_dict(orient="records")]
+            all_trains = [TrainTracking(**row) for row in df_merged.to_dict(orient="records")]
             db.add_all(all_trains)
             await db.commit()
             logger.info("✅ Data successfully uploaded to PostgreSQL!")

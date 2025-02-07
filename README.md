@@ -11,11 +11,13 @@ This project analyzes train delays at **Finsbury Park (FPK)**, capturing **all a
 /train-tracking
 │── main.py                # 🔄 Runs the full data pipeline & API
 │── config.py              # 🛠️ Stores API credentials & configurations
-│── integrate_data.py      # 🔄 Merges train arrival and station geospatial data 
+│
 │
 ├── data_pipeline/         # 🌐 Data processing scripts
 │   ├── extract.py         # 📀 Extracts arrivals from RTT API (past 7 days)
 │   ├── clean.py           # 🌱 Cleans & processes data (calculates delays, adjusts dates)
+|   |── merge.py           # 🔄 Merges train arrival and station geospatial data 
+|   |── map.py         # Creates interactive maps using merged data 
 │   └── utils.py           # 🏢 Uploads processed data to PostgreSQL
 │
 ├── db/                    # 📁 Database setup & schema
@@ -31,7 +33,7 @@ This project analyzes train delays at **Finsbury Park (FPK)**, capturing **all a
 │   ├── station_data.json  # Raw station data in JSON format 
 │   └── station_coordinates.csv  # Processed station coordinates 
 │
-├── geodata/               # 🛠️ Generated train maps 
+├── maps/               # 🛠️ Generated train maps 
 │   └── train_delays_maps.html  # Interactive map with delay info
 │
 ├── services/              # 🛠️ API interaction scripts
@@ -86,8 +88,7 @@ uvicorn main:app --reload
 ### 🔄 Data Model
 | Column | Type | Description |
 |--|--|--|
-| `run_date` | DATE | Adjusted date of train arrival |
-| `non_adjusted_date` | DATE | Original date as provided by the RTT API |
+| `run_date` | DATE | Date of train arrival |
 | `service_id` | STRING | Unique train ID |
 | `operator` | STRING | Train company |
 | `origin` | STRING | Departure station |
@@ -99,7 +100,6 @@ uvicorn main:app --reload
 | `is_actual` | BOOLEAN | True if real arrival recorded |
 | `delay_minutes` | INTEGER | Delay in minutes |
 | `is_passenger_train` | BOOLEAN |	True if the train is a passenger service |
-|  `next_day_arrival`	| BOOLEAN |	True if the arrival occurs after midnight |
 | `was_scheduled_to_stop` |	BOOLEAN	| True if the stop was originally scheduled |
 | `stop_status`	| STRING |	Display status (e.g., "CALL") |
 
@@ -119,12 +119,11 @@ for sql scripts, see [SQL Queries](/sql_old_table).
 
 ### Steps:
 1. Verify Data Structure 🔍
-2. Merge the Datasets: Use the separate script `integrate_data.py` 🔄 
-3. Validate data: checking and fixing missing values: Use the script `values_check.py` to detect any missing values. 
-3. 
-3. Update the Schema and Reinitialize the Database 🛠️
-4. Update Mapping: Use the merged dataset for visualising train delays and station locations 🗺️
-5. In Progress: Visualising delay hotspots 🔥
+2. Merge the Datasets 🔄 
+3. Validate data: checking and fixing missing values. 
+4. Update the Schema and Reinitialize the Database 🛠️
+5. Update Mapping: Use the merged dataset for visualising train delays and station locations 🗺️
+6. In Progress: Visualising delay hotspots 🔥
 
 Troubleshooting:
 We have 292 missing values for origin stations and 281 for destination stations:

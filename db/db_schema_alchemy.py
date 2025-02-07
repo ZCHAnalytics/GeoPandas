@@ -1,6 +1,6 @@
-# db_schema.py - SQLAlchemy Database Schema
+# SQLAlchemy Database Schema
 
-from sqlalchemy import Column, Integer, String, Date, Time, Boolean
+from sqlalchemy import Column, Integer, String, Date, Time, Float, Boolean
 from sqlalchemy.orm import declarative_base
 
 Base = declarative_base()
@@ -14,23 +14,22 @@ class TrainTracking(Base):
     id = Column(Integer, primary_key=True)
 
     # Date fields
-    # The adjusted)run)date (after applying the next_date_arrival flag)
     run_date = Column(Date, nullable=False)
-
-    # The original run_date as provided by the API (before adjustment)
-    non_adjusted_date = Column(Date, nullable=False)
 
     # Train identification
     service_id = Column(String(10), nullable=False)
     operator = Column(String(50), nullable=False)
 
-    # New fields to add crs for origin and destination stations
+    # ✅ New geospatial fields
     origin = Column(String(50), nullable=False)
     origin_crs = Column(String(6), nullable=True)
-
+    origin_latitude = Column(Float, nullable=True)
+    origin_longitude = Column(Float, nullable=True)
+    
     destination = Column(String(50), nullable=False)
     destination_crs = Column(String(6), nullable=True)
-    
+    destination_latitude = Column(Float, nullable=True)
+    destination_longitude = Column(Float, nullable=True)
 
     scheduled_arrival = Column(Time, nullable=False)
     actual_arrival = Column(Time, nullable=True)
@@ -39,7 +38,6 @@ class TrainTracking(Base):
 
     # ✅ New fields
     is_passenger_train = Column(Boolean, nullable=False, default=True)  # True if passenger train
-    next_day_arrival = Column(Boolean, nullable=False, default=False)  # True if arrival is after midnight
     was_scheduled_to_stop = Column(Boolean, nullable=False, default=True)  # True if originally scheduled to stop
     stop_status = Column(String(20), nullable=False, default="UNKNOWN")  # Display status
 

@@ -45,7 +45,7 @@ What does the script does:
 - rename CRS and coordinates columns for origin stations from "crs" to "origin_crs", "latitude" to "origin_latitude", and "longitude" to "origin_longitude", to prepare for adding destination `crs`, `latitude`, and `longitude`.
 - now we can add coordinates info from Doogal dataset to newly merged dataFrame based on the name of destination station. The rest of data from Doogal is discarded. 
 - we should rename the new columnds in our merged dataFrame for consistency as "crs" to "destination_crs", "latitude" to "destination_latitude", and "longitude" to "destination_longitude"
-- drop duplicated data 
+- drop duplicated data (also save it somewhere for closer inspection!)
 - finally, save data as CSV file 
 
 Without dropping columns, the station names are repeated twice:
