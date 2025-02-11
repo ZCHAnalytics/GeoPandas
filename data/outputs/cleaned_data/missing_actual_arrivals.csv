@@ -1,0 +1,17 @@
+run_date,service_id,operator,scheduled_arrival,origin,destination
+2025-02-09,X35842,Great Northern,0123,Welwyn Garden City,Finsbury Park
+2025-02-10,X50636,Great Northern,0202,Welwyn Garden City,Finsbury Park
+2025-02-08,X35878,Great Northern,0054,Welwyn Garden City,Finsbury Park
+2025-02-08,X35877,Great Northern,0110,Welwyn Garden City,Finsbury Park
+2025-02-09,X50594,Great Northern,0124,Alexandra Palace,Finsbury Park
+2025-02-09,X35876,Great Northern,0154,Hertford North,Finsbury Park
+2025-02-09,X50593,Great Northern,0213,Alexandra Palace,Finsbury Park
+2025-02-06,X46120,Great Northern,0048,Gordon Hill,London Kings Cross
+2025-02-06,X46115,Great Northern,0124,Hertford North,London Kings Cross
+2025-02-07,X46114,Great Northern,0154,Hertford North,London Kings Cross
+2025-02-05,X46120,Great Northern,0048,Gordon Hill,London Kings Cross
+2025-02-05,X46115,Great Northern,0124,Hertford North,London Kings Cross
+2025-02-06,X46114,Great Northern,0154,Hertford North,London Kings Cross
+2025-02-04,X46120,Great Northern,0048,Gordon Hill,London Kings Cross
+2025-02-04,X46115,Great Northern,0124,Hertford North,London Kings Cross
+2025-02-05,X46114,Great Northern,0154,Hertford North,London Kings Cross
